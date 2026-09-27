@@ -19,7 +19,6 @@ namespace _2KursProgramming.View.Tabs
 
 
         BindingList<Customer> customers = new BindingList<Customer>();
-        Customer template_customer = new Customer();
         private void tableLayoutPanel1_Paint(object sender, PaintEventArgs e)
         {
 
@@ -27,27 +26,13 @@ namespace _2KursProgramming.View.Tabs
 
         private void AddCustButton_Click(object sender, EventArgs e)
         {
+            Customer template_customer = new Customer(FullNameTextbox.Text, AddressTextbox.Text);
             customers.Add(template_customer);
-        }
-
-        private void FullNameTextbox_TextChanged(object sender, EventArgs e)
-        {
-            template_customer.Fullname = FullNameTextbox.Text;
-        }
-
-        private void AddressTextbox_TextChanged(object sender, EventArgs e)
-        {
-            template_customer.Address = AddressTextbox.Text;
-        }
-
-        private void CustomersListbox_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
         }
 
         private void CustRemoveButton_Click(object sender, EventArgs e)
         {
-
+            customers.RemoveAt(CustomersListbox.SelectedIndex);
         }
     }
 }

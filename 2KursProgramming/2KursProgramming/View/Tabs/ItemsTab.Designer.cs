@@ -224,6 +224,7 @@
             ItemsListbox.Name = "ItemsListbox";
             ItemsListbox.Size = new Size(320, 499);
             ItemsListbox.TabIndex = 1;
+            ItemsListbox.SelectedIndexChanged += ItemsListbox_SelectedIndexChanged;
             // 
             // ItemsTxt
             // 

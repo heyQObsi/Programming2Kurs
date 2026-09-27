@@ -9,11 +9,25 @@ namespace _2KursProgramming.Model
 {
     internal class Item
     {
+        /// <summary>
+        /// Уникальный номер товара в БД
+        /// </summary>
         private readonly int _id;
-        private string _name;
-        private string _info;
+        /// <summary>
+        /// Наименование товара
+        /// </summary>
+        private string _name = null;
+        /// <summary>
+        /// Информация о товаре
+        /// </summary>
+        private string _info = null;
+        /// <summary>
+        /// Стоимость товара
+        /// </summary>
         private double _cost;
-
+        /// <summary>
+        /// Возвращает и задаёт наименование товара. Длина названия не должна превыщать 200 символов
+        /// </summary>
         private string Name
         {
             get { return _name; }
@@ -23,15 +37,21 @@ namespace _2KursProgramming.Model
                 _name = value;
             }
         }
-        private string Description
+        /// <summary>
+        /// Возвращает и задаёт информацию о товаре. Длина информации не должна превыщать 1000 символов
+        /// </summary>
+        private string Info
         {
             get { return _info; }
             set
             {
-                ValueValidator.AssertStringOnLength(value, 1000, "Description");
+                ValueValidator.AssertStringOnLength(value, 1000, "Info");
                 _info = value;
             }
         }
+        /// <summary>
+        /// Возвращает и задаёт стоимость товара. Содержит только числа в диапозоне (0; 100000)
+        /// </summary>
         private double Cost
         {
             get { return _cost; }
@@ -43,26 +63,23 @@ namespace _2KursProgramming.Model
             }
         }
         public Item() {}
-        public Item(string name, string description, int cost)
+        /// <summary>
+        /// Создаёт экземляр класса <see cref="Item"/>
+        /// </summary>
+        /// <param name="name">Наименование товара</param>
+        /// <param name="info">Информация о товаре</param>
+        /// <param name="cost">Стоимость товара</param>
+        public Item(string name, string info, int cost)
         {
             Name = name;
-            Description = description;
+            Info = info;
             Cost = cost;
             _id = IdGenerator.Schetchiki;
         }
-        //public void VvodZnach(string name, string description, int cost)
-        //{
-        //    _name = name;
-        //    _description = description;
-        //    _cost = cost;
-        //    _id = Schetchik.Schetchiki;
-        //}
-        public void VivodZnach()
+        public override string ToString()
         {
-            Console.WriteLine(_id);
-            Console.WriteLine(_name);
-            Console.WriteLine(_info);
-            Console.WriteLine(_cost);
+            // Возвращаем строку в том виде, в каком хотим видеть её в Листбоксе
+            return $"Имя: {_name} Стоимость: {_cost}";
         }
     }
 }
