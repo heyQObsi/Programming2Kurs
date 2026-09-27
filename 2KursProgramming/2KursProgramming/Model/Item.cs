@@ -11,7 +11,7 @@ namespace _2KursProgramming.Model
     {
         private readonly int _id;
         private string _name;
-        private string _description;
+        private string _info;
         private double _cost;
 
         private string Name
@@ -25,11 +25,11 @@ namespace _2KursProgramming.Model
         }
         private string Description
         {
-            get { return _description; }
+            get { return _info; }
             set
             {
                 ValueValidator.AssertStringOnLength(value, 1000, "Description");
-                _description = value;
+                _info = value;
             }
         }
         private double Cost
@@ -42,7 +42,7 @@ namespace _2KursProgramming.Model
                 _cost = value;
             }
         }
-        //public Item() {}
+        public Item() {}
         public Item(string name, string description, int cost)
         {
             Name = name;
@@ -61,7 +61,7 @@ namespace _2KursProgramming.Model
         {
             Console.WriteLine(_id);
             Console.WriteLine(_name);
-            Console.WriteLine(_description);
+            Console.WriteLine(_info);
             Console.WriteLine(_cost);
         }
     }

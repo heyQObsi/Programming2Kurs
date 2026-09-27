@@ -29,5 +29,15 @@ namespace _2KursProgramming.View.Tabs
         {
 
         }
+
+        private void ItemAddButton_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void ItemRemoveButton_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

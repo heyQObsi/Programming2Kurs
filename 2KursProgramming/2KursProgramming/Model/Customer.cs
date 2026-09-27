@@ -1,8 +1,9 @@
 ﻿using _2KursProgramming.Model;
+using _2KursProgramming.Services;
 using System;
 using System.Collections.Generic;
 using System.Text;
-using _2KursProgramming.Services;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace _2KursProgramming.Model
 {
@@ -12,7 +13,7 @@ namespace _2KursProgramming.Model
         private string _fullname;
         private string _address;
 
-        private string Fullname
+        public string Fullname
         {
             get { return _fullname; }
             set
@@ -21,7 +22,7 @@ namespace _2KursProgramming.Model
                 _fullname = value;
             }
         }
-        private string Address
+        public string Address
         {
             get { return _address; }
             set
@@ -30,24 +31,24 @@ namespace _2KursProgramming.Model
                 _address = value;
             }
         }
-        //public Customer() { }
+        public Customer() { }
         public Customer(string fullname, string address)
         {
             Fullname = fullname;
             Address = address;
             _id = IdGenerator.Schetchiki;
         }
+ 
         //public void VvodZnach(string fullname, string address)
         //{
         //    _fullname = fullname;
         //    _address = address;
         //    _id = Schetchik.Schetchiki;
         //}
-        public void VivodZnach()
+        public override string ToString()
         {
-            Console.WriteLine(_id);
-            Console.WriteLine(_fullname);
-            Console.WriteLine(_address);
+            // Возвращаем строку в том виде, в каком хотим видеть её в Листбоксе
+            return $"Имя: {_fullname} Адресс: {Address}";
         }
     }
 }

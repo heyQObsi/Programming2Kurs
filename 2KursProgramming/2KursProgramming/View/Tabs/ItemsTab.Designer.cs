@@ -28,62 +28,62 @@
         /// </summary>
         private void InitializeComponent()
         {
-            MainLayoutPanel = new TableLayoutPanel();
-            InfoPanel = new Panel();
+            ItemMainLayoutPanel = new TableLayoutPanel();
+            ItemInfoPanel = new Panel();
             DescriptionTextbox = new TextBox();
             DescriptionTxt = new Label();
             NameTextbox = new TextBox();
             NameTxt = new Label();
             CostTxt = new Label();
-            IdTxt = new Label();
+            IdItemTxt = new Label();
             CostTextbox = new TextBox();
-            IdTextbox = new TextBox();
-            SelectedTxt = new Label();
+            IdItemTextbox = new TextBox();
+            SelectedItemTxt = new Label();
             ItemsPanel = new Panel();
-            ButtonPanel = new TableLayoutPanel();
-            AddButton = new Button();
-            RemoveButton = new Button();
+            ItemButtonPanel = new TableLayoutPanel();
+            ItemAddButton = new Button();
+            ItemRemoveButton = new Button();
             ItemsListbox = new ListBox();
             ItemsTxt = new Label();
-            MainLayoutPanel.SuspendLayout();
-            InfoPanel.SuspendLayout();
+            ItemMainLayoutPanel.SuspendLayout();
+            ItemInfoPanel.SuspendLayout();
             ItemsPanel.SuspendLayout();
-            ButtonPanel.SuspendLayout();
+            ItemButtonPanel.SuspendLayout();
             SuspendLayout();
             // 
-            // MainLayoutPanel
+            // ItemMainLayoutPanel
             // 
-            MainLayoutPanel.ColumnCount = 2;
-            MainLayoutPanel.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 41.5286636F));
-            MainLayoutPanel.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 58.4713364F));
-            MainLayoutPanel.Controls.Add(InfoPanel, 1, 0);
-            MainLayoutPanel.Controls.Add(ItemsPanel, 0, 0);
-            MainLayoutPanel.Dock = DockStyle.Fill;
-            MainLayoutPanel.Location = new Point(0, 0);
-            MainLayoutPanel.Name = "MainLayoutPanel";
-            MainLayoutPanel.RowCount = 1;
-            MainLayoutPanel.RowStyles.Add(new RowStyle(SizeType.Percent, 87.33945F));
-            MainLayoutPanel.Size = new Size(800, 587);
-            MainLayoutPanel.TabIndex = 0;
-            MainLayoutPanel.Paint += tableLayoutPanel1_Paint;
+            ItemMainLayoutPanel.ColumnCount = 2;
+            ItemMainLayoutPanel.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 41.5286636F));
+            ItemMainLayoutPanel.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 58.4713364F));
+            ItemMainLayoutPanel.Controls.Add(ItemInfoPanel, 1, 0);
+            ItemMainLayoutPanel.Controls.Add(ItemsPanel, 0, 0);
+            ItemMainLayoutPanel.Dock = DockStyle.Fill;
+            ItemMainLayoutPanel.Location = new Point(0, 0);
+            ItemMainLayoutPanel.Name = "ItemMainLayoutPanel";
+            ItemMainLayoutPanel.RowCount = 1;
+            ItemMainLayoutPanel.RowStyles.Add(new RowStyle(SizeType.Percent, 87.33945F));
+            ItemMainLayoutPanel.Size = new Size(800, 587);
+            ItemMainLayoutPanel.TabIndex = 0;
+            ItemMainLayoutPanel.Paint += tableLayoutPanel1_Paint;
             // 
-            // InfoPanel
+            // ItemInfoPanel
             // 
-            InfoPanel.BackColor = SystemColors.ButtonHighlight;
-            InfoPanel.Controls.Add(DescriptionTextbox);
-            InfoPanel.Controls.Add(DescriptionTxt);
-            InfoPanel.Controls.Add(NameTextbox);
-            InfoPanel.Controls.Add(NameTxt);
-            InfoPanel.Controls.Add(CostTxt);
-            InfoPanel.Controls.Add(IdTxt);
-            InfoPanel.Controls.Add(CostTextbox);
-            InfoPanel.Controls.Add(IdTextbox);
-            InfoPanel.Controls.Add(SelectedTxt);
-            InfoPanel.Dock = DockStyle.Fill;
-            InfoPanel.Location = new Point(335, 3);
-            InfoPanel.Name = "InfoPanel";
-            InfoPanel.Size = new Size(462, 581);
-            InfoPanel.TabIndex = 1;
+            ItemInfoPanel.BackColor = SystemColors.ButtonHighlight;
+            ItemInfoPanel.Controls.Add(DescriptionTextbox);
+            ItemInfoPanel.Controls.Add(DescriptionTxt);
+            ItemInfoPanel.Controls.Add(NameTextbox);
+            ItemInfoPanel.Controls.Add(NameTxt);
+            ItemInfoPanel.Controls.Add(CostTxt);
+            ItemInfoPanel.Controls.Add(IdItemTxt);
+            ItemInfoPanel.Controls.Add(CostTextbox);
+            ItemInfoPanel.Controls.Add(IdItemTextbox);
+            ItemInfoPanel.Controls.Add(SelectedItemTxt);
+            ItemInfoPanel.Dock = DockStyle.Fill;
+            ItemInfoPanel.Location = new Point(335, 3);
+            ItemInfoPanel.Name = "ItemInfoPanel";
+            ItemInfoPanel.Size = new Size(462, 581);
+            ItemInfoPanel.TabIndex = 1;
             // 
             // DescriptionTextbox
             // 
@@ -132,15 +132,15 @@
             CostTxt.TabIndex = 4;
             CostTxt.Text = "Cost:";
             // 
-            // IdTxt
+            // IdItemTxt
             // 
-            IdTxt.AutoSize = true;
-            IdTxt.Location = new Point(3, 40);
-            IdTxt.Name = "IdTxt";
-            IdTxt.Size = new Size(21, 15);
-            IdTxt.TabIndex = 3;
-            IdTxt.Text = "ID:";
-            IdTxt.Click += label3_Click;
+            IdItemTxt.AutoSize = true;
+            IdItemTxt.Location = new Point(3, 40);
+            IdItemTxt.Name = "IdItemTxt";
+            IdItemTxt.Size = new Size(21, 15);
+            IdItemTxt.TabIndex = 3;
+            IdItemTxt.Text = "ID:";
+            IdItemTxt.Click += label3_Click;
             // 
             // CostTextbox
             // 
@@ -149,28 +149,28 @@
             CostTextbox.Size = new Size(136, 23);
             CostTextbox.TabIndex = 2;
             // 
-            // IdTextbox
+            // IdItemTextbox
             // 
-            IdTextbox.Location = new Point(46, 37);
-            IdTextbox.Name = "IdTextbox";
-            IdTextbox.Size = new Size(136, 23);
-            IdTextbox.TabIndex = 1;
+            IdItemTextbox.Location = new Point(46, 37);
+            IdItemTextbox.Name = "IdItemTextbox";
+            IdItemTextbox.Size = new Size(136, 23);
+            IdItemTextbox.TabIndex = 1;
             // 
-            // SelectedTxt
+            // SelectedItemTxt
             // 
-            SelectedTxt.AutoSize = true;
-            SelectedTxt.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 204);
-            SelectedTxt.Location = new Point(3, 10);
-            SelectedTxt.Name = "SelectedTxt";
-            SelectedTxt.Size = new Size(86, 15);
-            SelectedTxt.TabIndex = 0;
-            SelectedTxt.Text = "Selected Item";
+            SelectedItemTxt.AutoSize = true;
+            SelectedItemTxt.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 204);
+            SelectedItemTxt.Location = new Point(3, 10);
+            SelectedItemTxt.Name = "SelectedItemTxt";
+            SelectedItemTxt.Size = new Size(86, 15);
+            SelectedItemTxt.TabIndex = 0;
+            SelectedItemTxt.Text = "Selected Item";
             // 
             // ItemsPanel
             // 
             ItemsPanel.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
-            ItemsPanel.BackColor = SystemColors.ButtonHighlight;
-            ItemsPanel.Controls.Add(ButtonPanel);
+            ItemsPanel.BackColor = SystemColors.Menu;
+            ItemsPanel.Controls.Add(ItemButtonPanel);
             ItemsPanel.Controls.Add(ItemsListbox);
             ItemsPanel.Controls.Add(ItemsTxt);
             ItemsPanel.Location = new Point(3, 3);
@@ -178,41 +178,43 @@
             ItemsPanel.Size = new Size(326, 581);
             ItemsPanel.TabIndex = 2;
             // 
-            // ButtonPanel
+            // ItemButtonPanel
             // 
-            ButtonPanel.Anchor = AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
-            ButtonPanel.ColumnCount = 3;
-            ButtonPanel.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 33.3333321F));
-            ButtonPanel.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 33.3333321F));
-            ButtonPanel.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 33.3333321F));
-            ButtonPanel.Controls.Add(AddButton, 0, 0);
-            ButtonPanel.Controls.Add(RemoveButton, 1, 0);
-            ButtonPanel.Location = new Point(3, 528);
-            ButtonPanel.Name = "ButtonPanel";
-            ButtonPanel.RowCount = 1;
-            ButtonPanel.RowStyles.Add(new RowStyle(SizeType.Percent, 100F));
-            ButtonPanel.Size = new Size(320, 50);
-            ButtonPanel.TabIndex = 2;
+            ItemButtonPanel.Anchor = AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            ItemButtonPanel.ColumnCount = 3;
+            ItemButtonPanel.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 33.3333321F));
+            ItemButtonPanel.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 33.3333321F));
+            ItemButtonPanel.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 33.3333321F));
+            ItemButtonPanel.Controls.Add(ItemAddButton, 0, 0);
+            ItemButtonPanel.Controls.Add(ItemRemoveButton, 1, 0);
+            ItemButtonPanel.Location = new Point(3, 528);
+            ItemButtonPanel.Name = "ItemButtonPanel";
+            ItemButtonPanel.RowCount = 1;
+            ItemButtonPanel.RowStyles.Add(new RowStyle(SizeType.Percent, 100F));
+            ItemButtonPanel.Size = new Size(320, 50);
+            ItemButtonPanel.TabIndex = 2;
             // 
-            // AddButton
+            // ItemAddButton
             // 
-            AddButton.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
-            AddButton.Location = new Point(3, 3);
-            AddButton.Name = "AddButton";
-            AddButton.Size = new Size(100, 44);
-            AddButton.TabIndex = 0;
-            AddButton.Text = "Add";
-            AddButton.UseVisualStyleBackColor = true;
+            ItemAddButton.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            ItemAddButton.Location = new Point(3, 3);
+            ItemAddButton.Name = "ItemAddButton";
+            ItemAddButton.Size = new Size(100, 44);
+            ItemAddButton.TabIndex = 0;
+            ItemAddButton.Text = "Add";
+            ItemAddButton.UseVisualStyleBackColor = true;
+            ItemAddButton.Click += ItemAddButton_Click;
             // 
-            // RemoveButton
+            // ItemRemoveButton
             // 
-            RemoveButton.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
-            RemoveButton.Location = new Point(109, 3);
-            RemoveButton.Name = "RemoveButton";
-            RemoveButton.Size = new Size(100, 44);
-            RemoveButton.TabIndex = 1;
-            RemoveButton.Text = "Remove";
-            RemoveButton.UseVisualStyleBackColor = true;
+            ItemRemoveButton.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            ItemRemoveButton.Location = new Point(109, 3);
+            ItemRemoveButton.Name = "ItemRemoveButton";
+            ItemRemoveButton.Size = new Size(100, 44);
+            ItemRemoveButton.TabIndex = 1;
+            ItemRemoveButton.Text = "Remove";
+            ItemRemoveButton.UseVisualStyleBackColor = true;
+            ItemRemoveButton.Click += ItemRemoveButton_Click;
             // 
             // ItemsListbox
             // 
@@ -238,32 +240,32 @@
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            Controls.Add(MainLayoutPanel);
+            Controls.Add(ItemMainLayoutPanel);
             Name = "ItemsTab";
             Size = new Size(800, 587);
-            MainLayoutPanel.ResumeLayout(false);
-            InfoPanel.ResumeLayout(false);
-            InfoPanel.PerformLayout();
+            ItemMainLayoutPanel.ResumeLayout(false);
+            ItemInfoPanel.ResumeLayout(false);
+            ItemInfoPanel.PerformLayout();
             ItemsPanel.ResumeLayout(false);
             ItemsPanel.PerformLayout();
-            ButtonPanel.ResumeLayout(false);
+            ItemButtonPanel.ResumeLayout(false);
             ResumeLayout(false);
         }
 
         #endregion
 
-        private TableLayoutPanel MainLayoutPanel;
-        private Panel InfoPanel;
+        private TableLayoutPanel ItemMainLayoutPanel;
+        private Panel ItemInfoPanel;
         private Panel ItemsPanel;
         private Label ItemsTxt;
-        private TableLayoutPanel ButtonPanel;
+        private TableLayoutPanel ItemButtonPanel;
         private ListBox ItemsListbox;
-        private Button AddButton;
-        private Button RemoveButton;
+        private Button ItemAddButton;
+        private Button ItemRemoveButton;
         private TextBox CostTextbox;
-        private TextBox IdTextbox;
-        private Label SelectedTxt;
-        private Label IdTxt;
+        private TextBox IdItemTextbox;
+        private Label SelectedItemTxt;
+        private Label IdItemTxt;
         private Label CostTxt;
         private TextBox NameTextbox;
         private Label NameTxt;

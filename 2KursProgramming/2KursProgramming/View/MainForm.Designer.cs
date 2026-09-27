@@ -28,22 +28,26 @@
         /// </summary>
         private void InitializeComponent()
         {
-            tabControl1 = new TabControl();
+            Customers = new TabControl();
             tabPage1 = new TabPage();
             itemsTab1 = new _2KursProgramming.View.Tabs.ItemsTab();
-            tabControl1.SuspendLayout();
+            tabPage2 = new TabPage();
+            customersTab1 = new _2KursProgramming.View.Tabs.CustomersTab();
+            Customers.SuspendLayout();
             tabPage1.SuspendLayout();
+            tabPage2.SuspendLayout();
             SuspendLayout();
             // 
-            // tabControl1
+            // Customers
             // 
-            tabControl1.Controls.Add(tabPage1);
-            tabControl1.Dock = DockStyle.Fill;
-            tabControl1.Location = new Point(0, 0);
-            tabControl1.Name = "tabControl1";
-            tabControl1.SelectedIndex = 0;
-            tabControl1.Size = new Size(688, 601);
-            tabControl1.TabIndex = 0;
+            Customers.Controls.Add(tabPage1);
+            Customers.Controls.Add(tabPage2);
+            Customers.Dock = DockStyle.Fill;
+            Customers.Location = new Point(0, 0);
+            Customers.Name = "Customers";
+            Customers.SelectedIndex = 0;
+            Customers.Size = new Size(688, 601);
+            Customers.TabIndex = 0;
             // 
             // tabPage1
             // 
@@ -64,23 +68,45 @@
             itemsTab1.Size = new Size(674, 567);
             itemsTab1.TabIndex = 0;
             // 
+            // tabPage2
+            // 
+            tabPage2.Controls.Add(customersTab1);
+            tabPage2.Location = new Point(4, 24);
+            tabPage2.Name = "tabPage2";
+            tabPage2.Padding = new Padding(3);
+            tabPage2.Size = new Size(680, 573);
+            tabPage2.TabIndex = 1;
+            tabPage2.Text = "Customers";
+            tabPage2.UseVisualStyleBackColor = true;
+            // 
+            // customersTab1
+            // 
+            customersTab1.Dock = DockStyle.Fill;
+            customersTab1.Location = new Point(3, 3);
+            customersTab1.Name = "customersTab1";
+            customersTab1.Size = new Size(674, 567);
+            customersTab1.TabIndex = 0;
+            // 
             // MainForm
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(688, 601);
-            Controls.Add(tabControl1);
+            Controls.Add(Customers);
             Name = "MainForm";
             Text = "Form1";
-            tabControl1.ResumeLayout(false);
+            Customers.ResumeLayout(false);
             tabPage1.ResumeLayout(false);
+            tabPage2.ResumeLayout(false);
             ResumeLayout(false);
         }
 
         #endregion
 
-        private TabControl tabControl1;
+        private TabControl Customers;
         private TabPage tabPage1;
         private View.Tabs.ItemsTab itemsTab1;
+        private TabPage tabPage2;
+        private View.Tabs.CustomersTab customersTab1;
     }
 }
