@@ -60,7 +60,7 @@ namespace _2KursProgramming.Model
         public override string ToString()
         {
             // Возвращаем строку в том виде, в каком хотим видеть её в Листбоксе
-            return $"Имя: {_fullname} Адресс: {Address}";
+            return $"ID: {_id} Имя: {_fullname} Адресс: {Address}";
         }
     }
 }

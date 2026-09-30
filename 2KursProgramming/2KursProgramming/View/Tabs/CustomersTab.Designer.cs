@@ -33,6 +33,7 @@
             CustButtonPanel = new TableLayoutPanel();
             AddCustButton = new Button();
             CustRemoveButton = new Button();
+            RandCustButton = new Button();
             CustomersListbox = new ListBox();
             CustomersTxt = new Label();
             SelectedCustLayoutPanel = new TableLayoutPanel();
@@ -88,6 +89,7 @@
             CustButtonPanel.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 33.3333321F));
             CustButtonPanel.Controls.Add(AddCustButton, 0, 0);
             CustButtonPanel.Controls.Add(CustRemoveButton, 1, 0);
+            CustButtonPanel.Controls.Add(RandCustButton, 2, 0);
             CustButtonPanel.Location = new Point(3, 528);
             CustButtonPanel.Name = "CustButtonPanel";
             CustButtonPanel.RowCount = 1;
@@ -117,10 +119,22 @@
             CustRemoveButton.UseVisualStyleBackColor = true;
             CustRemoveButton.Click += CustRemoveButton_Click;
             // 
+            // RandCustButton
+            // 
+            RandCustButton.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            RandCustButton.Location = new Point(215, 3);
+            RandCustButton.Name = "RandCustButton";
+            RandCustButton.Size = new Size(102, 44);
+            RandCustButton.TabIndex = 2;
+            RandCustButton.Text = "Random";
+            RandCustButton.UseVisualStyleBackColor = true;
+            RandCustButton.Click += RandCustButton_Click;
+            // 
             // CustomersListbox
             // 
             CustomersListbox.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             CustomersListbox.FormattingEnabled = true;
+            CustomersListbox.HorizontalScrollbar = true;
             CustomersListbox.Location = new Point(3, 28);
             CustomersListbox.Name = "CustomersListbox";
             CustomersListbox.Size = new Size(320, 499);
@@ -276,5 +290,6 @@
         private Label CustIdTxt;
         private Label SelectedCustomerTxt;
         private Panel NoNamePanel;
+        private Button RandCustButton;
     }
 }

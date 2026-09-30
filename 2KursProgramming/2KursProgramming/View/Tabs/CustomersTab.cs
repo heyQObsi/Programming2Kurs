@@ -1,4 +1,5 @@
 ﻿using _2KursProgramming.Model;
+using _2KursProgramming.Services;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -11,6 +12,10 @@ namespace _2KursProgramming.View.Tabs
 {
     public partial class CustomersTab : UserControl
     {
+        private string[] CustomerName = File.ReadAllLines("C:\\Users\\heyQ\\Desktop\\Новая папка (2)\\Name.txt");
+        private string[] CustomerSurname = File.ReadAllLines("C:\\Users\\heyQ\\Desktop\\Новая папка (2)\\Surname.txt");
+        private string[] CustomerFathername = File.ReadAllLines("C:\\Users\\heyQ\\Desktop\\Новая папка (2)\\Fathername.txt");
+        private string[] CustomerAddress = File.ReadAllLines("C:\\Users\\heyQ\\Desktop\\Новая папка (2)\\Address.txt");
         public CustomersTab()
         {
             InitializeComponent();
@@ -33,6 +38,13 @@ namespace _2KursProgramming.View.Tabs
         private void CustRemoveButton_Click(object sender, EventArgs e)
         {
             customers.RemoveAt(CustomersListbox.SelectedIndex);
+        }
+
+        private void RandCustButton_Click(object sender, EventArgs e)
+        {
+            string[] RandomCustomer = CustomerFactory.CustGenerate(CustomerName, CustomerSurname, CustomerFathername, CustomerAddress);
+            Customer template_customer = new Customer(RandomCustomer[0], RandomCustomer[1]);
+            customers.Add(template_customer);
         }
     }
 }

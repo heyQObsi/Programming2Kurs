@@ -69,7 +69,7 @@ namespace _2KursProgramming.Model
         /// <param name="name">Наименование товара</param>
         /// <param name="info">Информация о товаре</param>
         /// <param name="cost">Стоимость товара</param>
-        public Item(string name, string info, int cost)
+        public Item(string name, string info, double cost)
         {
             Name = name;
             Info = info;
@@ -79,7 +79,7 @@ namespace _2KursProgramming.Model
         public override string ToString()
         {
             // Возвращаем строку в том виде, в каком хотим видеть её в Листбоксе
-            return $"Имя: {_name} Стоимость: {_cost}";
+            return $"ID: {_id} Cost: {_cost} Имя: {_name} Инфо {_info}";
         }
     }
 }

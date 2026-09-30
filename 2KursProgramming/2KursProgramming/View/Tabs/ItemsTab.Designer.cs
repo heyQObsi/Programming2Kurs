@@ -45,6 +45,7 @@
             ItemRemoveButton = new Button();
             ItemsListbox = new ListBox();
             ItemsTxt = new Label();
+            RandomItemButton = new Button();
             ItemMainLayoutPanel.SuspendLayout();
             ItemInfoPanel.SuspendLayout();
             ItemsPanel.SuspendLayout();
@@ -185,6 +186,7 @@
             ItemButtonPanel.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 33.3333321F));
             ItemButtonPanel.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 33.3333321F));
             ItemButtonPanel.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 33.3333321F));
+            ItemButtonPanel.Controls.Add(RandomItemButton, 2, 0);
             ItemButtonPanel.Controls.Add(ItemAddButton, 0, 0);
             ItemButtonPanel.Controls.Add(ItemRemoveButton, 1, 0);
             ItemButtonPanel.Location = new Point(3, 528);
@@ -220,6 +222,7 @@
             // 
             ItemsListbox.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             ItemsListbox.FormattingEnabled = true;
+            ItemsListbox.HorizontalScrollbar = true;
             ItemsListbox.Location = new Point(3, 28);
             ItemsListbox.Name = "ItemsListbox";
             ItemsListbox.Size = new Size(320, 499);
@@ -236,6 +239,17 @@
             ItemsTxt.TabIndex = 0;
             ItemsTxt.Text = "Items";
             ItemsTxt.Click += label1_Click;
+            // 
+            // RandomItemButton
+            // 
+            RandomItemButton.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            RandomItemButton.Location = new Point(215, 3);
+            RandomItemButton.Name = "RandomItemButton";
+            RandomItemButton.Size = new Size(102, 44);
+            RandomItemButton.TabIndex = 2;
+            RandomItemButton.Text = "Random";
+            RandomItemButton.UseVisualStyleBackColor = true;
+            RandomItemButton.Click += RandomItemButton_Click;
             // 
             // ItemsTab
             // 
@@ -272,5 +286,6 @@
         private Label NameTxt;
         private TextBox DescriptionTextbox;
         private Label DescriptionTxt;
+        private Button RandomItemButton;
     }
 }
