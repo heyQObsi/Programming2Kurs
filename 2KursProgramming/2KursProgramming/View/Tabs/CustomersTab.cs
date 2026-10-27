@@ -20,6 +20,7 @@ namespace _2KursProgramming.View.Tabs
         {
             InitializeComponent();
             CustomersListbox.DataSource = customers;
+            CustIdTextbox.Text = IdGenerator.CustGetCurrentId().ToString();
         }
 
 
@@ -33,11 +34,15 @@ namespace _2KursProgramming.View.Tabs
         {
             Customer template_customer = new Customer(FullNameTextbox.Text, AddressTextbox.Text);
             customers.Add(template_customer);
+            CustIdTextbox.Text = IdGenerator.CustGetCurrentId().ToString();
         }
 
         private void CustRemoveButton_Click(object sender, EventArgs e)
         {
-            customers.RemoveAt(CustomersListbox.SelectedIndex);
+            if (CustomersListbox.Items.Count != 0)
+            {
+                customers.RemoveAt(CustomersListbox.SelectedIndex);
+            }
         }
 
         private void RandCustButton_Click(object sender, EventArgs e)
@@ -45,6 +50,38 @@ namespace _2KursProgramming.View.Tabs
             string[] RandomCustomer = CustomerFactory.CustGenerate(CustomerName, CustomerSurname, CustomerFathername, CustomerAddress);
             Customer template_customer = new Customer(RandomCustomer[0], RandomCustomer[1]);
             customers.Add(template_customer);
+            CustIdTextbox.Text = IdGenerator.CustGetCurrentId().ToString();
+        }
+
+        private void FullNameTextbox_TextChanged(object sender, EventArgs e)
+        {
+            if (FullNameTextbox.Text.Length > 200)
+            {
+                FullNameTextbox.BackColor = Color.Red;
+            }
+            else
+            {
+                FullNameTextbox.BackColor = Color.White;
+            }
+        }
+
+        private void AddressTextbox_TextChanged(object sender, EventArgs e)
+        {
+            if (AddressTextbox.Text.Length > 500)
+            {
+                AddressTextbox.BackColor = Color.Red;
+            }
+            else
+            {
+                AddressTextbox.BackColor = Color.White;
+            }
+        }
+
+        private void CustomersListbox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            Customer? CustTub = CustomersListbox.SelectedItem as Customer;
+            FullNameTextbox.Text = CustTub.Fullname;
+            AddressTextbox.Text = CustTub.Address;
         }
     }
 }

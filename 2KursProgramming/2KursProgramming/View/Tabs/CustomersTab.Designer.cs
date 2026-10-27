@@ -139,6 +139,7 @@
             CustomersListbox.Name = "CustomersListbox";
             CustomersListbox.Size = new Size(320, 499);
             CustomersListbox.TabIndex = 1;
+            CustomersListbox.SelectedIndexChanged += CustomersListbox_SelectedIndexChanged;
             // 
             // CustomersTxt
             // 
@@ -191,6 +192,7 @@
             AddressTextbox.Name = "AddressTextbox";
             AddressTextbox.Size = new Size(380, 126);
             AddressTextbox.TabIndex = 6;
+            AddressTextbox.TextChanged += AddressTextbox_TextChanged;
             // 
             // FullNameTextbox
             // 
@@ -200,11 +202,13 @@
             FullNameTextbox.Name = "FullNameTextbox";
             FullNameTextbox.Size = new Size(380, 23);
             FullNameTextbox.TabIndex = 5;
+            FullNameTextbox.TextChanged += FullNameTextbox_TextChanged;
             // 
             // CustIdTextbox
             // 
             CustIdTextbox.Location = new Point(73, 34);
             CustIdTextbox.Name = "CustIdTextbox";
+            CustIdTextbox.ReadOnly = true;
             CustIdTextbox.Size = new Size(137, 23);
             CustIdTextbox.TabIndex = 4;
             // 

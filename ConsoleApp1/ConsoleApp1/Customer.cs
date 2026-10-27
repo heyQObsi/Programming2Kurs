@@ -10,7 +10,7 @@ namespace ConsoleApp1
         private string _fullname;
         private string _address;
 
-        private string Fullname
+        public string Fullname
         {
             get { return _fullname; }
             set
@@ -19,7 +19,7 @@ namespace ConsoleApp1
                 _fullname = value;
             }
         }
-        private string Address
+        public string Address
         {
             get { return _address; }
             set
@@ -28,12 +28,17 @@ namespace ConsoleApp1
                 _address = value;
             }
         }
+        public int CustID
+        {
+            get { return IdGenerator.Schetchiki; }
+            set { }
+        }
         //public Customer() { }
         public Customer(string fullname, string address)
         {
             Fullname = fullname;
             Address = address;
-            _id = IdGenerator.Schetchiki;
+            _id = CustID;
         }
         //public void VvodZnach(string fullname, string address)
         //{

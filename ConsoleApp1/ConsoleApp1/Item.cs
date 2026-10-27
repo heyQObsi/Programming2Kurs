@@ -12,7 +12,7 @@ namespace ConsoleApp1
         private string _description;
         private double _cost;
 
-        private string Name
+        public string Name
         {
             get { return _name; }
             set
@@ -21,7 +21,7 @@ namespace ConsoleApp1
                 _name = value;
             }
         }
-        private string Description
+        public string Description
         {
             get { return _description; }
             set
@@ -30,7 +30,7 @@ namespace ConsoleApp1
                 _description = value;
             }
         }
-        private double Cost
+        public double Cost
         {
             get { return _cost; }
             set
@@ -40,13 +40,18 @@ namespace ConsoleApp1
                 _cost = value;
             }
         }
-        //public Item() {}
+        public int ItemID
+        {
+            get { return IdGenerator.Schetchiki; }
+            set { }
+        }
+        public Item() {}
         public Item(string name, string description, int cost)
         {
             Name = name;
             Description = description;
             Cost = cost;
-            _id = IdGenerator.Schetchiki;
+            _id = ItemID;
         }
         //public void VvodZnach(string name, string description, int cost)
         //{

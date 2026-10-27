@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using _2KursProgramming.View;
+using _2KursProgramming.View.Tabs;
 
 namespace _2KursProgramming.Services
 {

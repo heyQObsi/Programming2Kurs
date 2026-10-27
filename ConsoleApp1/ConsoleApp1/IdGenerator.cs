@@ -13,6 +13,7 @@ namespace ConsoleApp1
             {
                 return schetchiki++;
             }
+            set { }
         }
     }
 }

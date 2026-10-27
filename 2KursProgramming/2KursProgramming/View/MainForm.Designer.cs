@@ -28,37 +28,37 @@
         /// </summary>
         private void InitializeComponent()
         {
-            Customers = new TabControl();
-            tabPage1 = new TabPage();
+            MainIcon = new TabControl();
+            ItemTabPage = new TabPage();
             itemsTab1 = new _2KursProgramming.View.Tabs.ItemsTab();
-            tabPage2 = new TabPage();
+            CustTabPage = new TabPage();
             customersTab1 = new _2KursProgramming.View.Tabs.CustomersTab();
-            Customers.SuspendLayout();
-            tabPage1.SuspendLayout();
-            tabPage2.SuspendLayout();
+            MainIcon.SuspendLayout();
+            ItemTabPage.SuspendLayout();
+            CustTabPage.SuspendLayout();
             SuspendLayout();
             // 
-            // Customers
+            // MainIcon
             // 
-            Customers.Controls.Add(tabPage1);
-            Customers.Controls.Add(tabPage2);
-            Customers.Dock = DockStyle.Fill;
-            Customers.Location = new Point(0, 0);
-            Customers.Name = "Customers";
-            Customers.SelectedIndex = 0;
-            Customers.Size = new Size(688, 601);
-            Customers.TabIndex = 0;
+            MainIcon.Controls.Add(ItemTabPage);
+            MainIcon.Controls.Add(CustTabPage);
+            MainIcon.Dock = DockStyle.Fill;
+            MainIcon.Location = new Point(0, 0);
+            MainIcon.Name = "MainIcon";
+            MainIcon.SelectedIndex = 0;
+            MainIcon.Size = new Size(688, 601);
+            MainIcon.TabIndex = 0;
             // 
-            // tabPage1
+            // ItemTabPage
             // 
-            tabPage1.Controls.Add(itemsTab1);
-            tabPage1.Location = new Point(4, 24);
-            tabPage1.Name = "tabPage1";
-            tabPage1.Padding = new Padding(3);
-            tabPage1.Size = new Size(680, 573);
-            tabPage1.TabIndex = 0;
-            tabPage1.Text = "Items";
-            tabPage1.UseVisualStyleBackColor = true;
+            ItemTabPage.Controls.Add(itemsTab1);
+            ItemTabPage.Location = new Point(4, 24);
+            ItemTabPage.Name = "ItemTabPage";
+            ItemTabPage.Padding = new Padding(3);
+            ItemTabPage.Size = new Size(680, 573);
+            ItemTabPage.TabIndex = 0;
+            ItemTabPage.Text = "Items";
+            ItemTabPage.UseVisualStyleBackColor = true;
             // 
             // itemsTab1
             // 
@@ -68,16 +68,16 @@
             itemsTab1.Size = new Size(674, 567);
             itemsTab1.TabIndex = 0;
             // 
-            // tabPage2
+            // CustTabPage
             // 
-            tabPage2.Controls.Add(customersTab1);
-            tabPage2.Location = new Point(4, 24);
-            tabPage2.Name = "tabPage2";
-            tabPage2.Padding = new Padding(3);
-            tabPage2.Size = new Size(680, 573);
-            tabPage2.TabIndex = 1;
-            tabPage2.Text = "Customers";
-            tabPage2.UseVisualStyleBackColor = true;
+            CustTabPage.Controls.Add(customersTab1);
+            CustTabPage.Location = new Point(4, 24);
+            CustTabPage.Name = "CustTabPage";
+            CustTabPage.Padding = new Padding(3);
+            CustTabPage.Size = new Size(680, 573);
+            CustTabPage.TabIndex = 1;
+            CustTabPage.Text = "Customers";
+            CustTabPage.UseVisualStyleBackColor = true;
             // 
             // customersTab1
             // 
@@ -92,21 +92,21 @@
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(688, 601);
-            Controls.Add(Customers);
+            Controls.Add(MainIcon);
             Name = "MainForm";
             Text = "Form1";
-            Customers.ResumeLayout(false);
-            tabPage1.ResumeLayout(false);
-            tabPage2.ResumeLayout(false);
+            MainIcon.ResumeLayout(false);
+            ItemTabPage.ResumeLayout(false);
+            CustTabPage.ResumeLayout(false);
             ResumeLayout(false);
         }
 
         #endregion
 
-        private TabControl Customers;
-        private TabPage tabPage1;
+        private TabControl MainIcon;
+        private TabPage ItemTabPage;
         private View.Tabs.ItemsTab itemsTab1;
-        private TabPage tabPage2;
+        private TabPage CustTabPage;
         private View.Tabs.CustomersTab customersTab1;
     }
 }

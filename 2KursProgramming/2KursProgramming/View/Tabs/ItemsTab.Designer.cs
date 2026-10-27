@@ -30,6 +30,8 @@
         {
             ItemMainLayoutPanel = new TableLayoutPanel();
             ItemInfoPanel = new Panel();
+            CategoryCombobox = new ComboBox();
+            CategoryTxt = new Label();
             DescriptionTextbox = new TextBox();
             DescriptionTxt = new Label();
             NameTextbox = new TextBox();
@@ -41,11 +43,11 @@
             SelectedItemTxt = new Label();
             ItemsPanel = new Panel();
             ItemButtonPanel = new TableLayoutPanel();
+            RandomItemButton = new Button();
             ItemAddButton = new Button();
             ItemRemoveButton = new Button();
             ItemsListbox = new ListBox();
             ItemsTxt = new Label();
-            RandomItemButton = new Button();
             ItemMainLayoutPanel.SuspendLayout();
             ItemInfoPanel.SuspendLayout();
             ItemsPanel.SuspendLayout();
@@ -71,6 +73,8 @@
             // ItemInfoPanel
             // 
             ItemInfoPanel.BackColor = SystemColors.ButtonHighlight;
+            ItemInfoPanel.Controls.Add(CategoryCombobox);
+            ItemInfoPanel.Controls.Add(CategoryTxt);
             ItemInfoPanel.Controls.Add(DescriptionTextbox);
             ItemInfoPanel.Controls.Add(DescriptionTxt);
             ItemInfoPanel.Controls.Add(NameTextbox);
@@ -86,20 +90,39 @@
             ItemInfoPanel.Size = new Size(462, 581);
             ItemInfoPanel.TabIndex = 1;
             // 
+            // CategoryCombobox
+            // 
+            CategoryCombobox.FormattingEnabled = true;
+            CategoryCombobox.Location = new Point(77, 95);
+            CategoryCombobox.Name = "CategoryCombobox";
+            CategoryCombobox.Size = new Size(136, 23);
+            CategoryCombobox.TabIndex = 10;
+            CategoryCombobox.SelectedIndexChanged += CategoryCombobox_SelectedIndexChanged;
+            // 
+            // CategoryTxt
+            // 
+            CategoryTxt.AutoSize = true;
+            CategoryTxt.Location = new Point(3, 98);
+            CategoryTxt.Name = "CategoryTxt";
+            CategoryTxt.Size = new Size(58, 15);
+            CategoryTxt.TabIndex = 9;
+            CategoryTxt.Text = "Category:";
+            // 
             // DescriptionTextbox
             // 
             DescriptionTextbox.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
-            DescriptionTextbox.Location = new Point(3, 256);
+            DescriptionTextbox.Location = new Point(3, 289);
             DescriptionTextbox.MaximumSize = new Size(800, 75);
             DescriptionTextbox.Multiline = true;
             DescriptionTextbox.Name = "DescriptionTextbox";
             DescriptionTextbox.Size = new Size(456, 75);
             DescriptionTextbox.TabIndex = 8;
+            DescriptionTextbox.TextChanged += DescriptionTextbox_TextChanged;
             // 
             // DescriptionTxt
             // 
             DescriptionTxt.AutoSize = true;
-            DescriptionTxt.Location = new Point(3, 238);
+            DescriptionTxt.Location = new Point(3, 271);
             DescriptionTxt.Name = "DescriptionTxt";
             DescriptionTxt.Size = new Size(70, 15);
             DescriptionTxt.TabIndex = 7;
@@ -108,17 +131,19 @@
             // NameTextbox
             // 
             NameTextbox.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
-            NameTextbox.Location = new Point(3, 115);
+            NameTextbox.BackColor = Color.White;
+            NameTextbox.Location = new Point(3, 148);
             NameTextbox.MaximumSize = new Size(800, 111);
             NameTextbox.Multiline = true;
             NameTextbox.Name = "NameTextbox";
             NameTextbox.Size = new Size(456, 111);
             NameTextbox.TabIndex = 6;
+            NameTextbox.TextChanged += NameTextbox_TextChanged;
             // 
             // NameTxt
             // 
             NameTxt.AutoSize = true;
-            NameTxt.Location = new Point(3, 97);
+            NameTxt.Location = new Point(3, 130);
             NameTxt.Name = "NameTxt";
             NameTxt.Size = new Size(42, 15);
             NameTxt.TabIndex = 5;
@@ -145,15 +170,17 @@
             // 
             // CostTextbox
             // 
-            CostTextbox.Location = new Point(46, 66);
+            CostTextbox.Location = new Point(77, 66);
             CostTextbox.Name = "CostTextbox";
             CostTextbox.Size = new Size(136, 23);
             CostTextbox.TabIndex = 2;
+            CostTextbox.TextChanged += CostTextbox_TextChanged;
             // 
             // IdItemTextbox
             // 
-            IdItemTextbox.Location = new Point(46, 37);
+            IdItemTextbox.Location = new Point(77, 37);
             IdItemTextbox.Name = "IdItemTextbox";
+            IdItemTextbox.ReadOnly = true;
             IdItemTextbox.Size = new Size(136, 23);
             IdItemTextbox.TabIndex = 1;
             // 
@@ -195,6 +222,17 @@
             ItemButtonPanel.RowStyles.Add(new RowStyle(SizeType.Percent, 100F));
             ItemButtonPanel.Size = new Size(320, 50);
             ItemButtonPanel.TabIndex = 2;
+            // 
+            // RandomItemButton
+            // 
+            RandomItemButton.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            RandomItemButton.Location = new Point(215, 3);
+            RandomItemButton.Name = "RandomItemButton";
+            RandomItemButton.Size = new Size(102, 44);
+            RandomItemButton.TabIndex = 2;
+            RandomItemButton.Text = "Random";
+            RandomItemButton.UseVisualStyleBackColor = true;
+            RandomItemButton.Click += RandomItemButton_Click;
             // 
             // ItemAddButton
             // 
@@ -240,17 +278,6 @@
             ItemsTxt.Text = "Items";
             ItemsTxt.Click += label1_Click;
             // 
-            // RandomItemButton
-            // 
-            RandomItemButton.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
-            RandomItemButton.Location = new Point(215, 3);
-            RandomItemButton.Name = "RandomItemButton";
-            RandomItemButton.Size = new Size(102, 44);
-            RandomItemButton.TabIndex = 2;
-            RandomItemButton.Text = "Random";
-            RandomItemButton.UseVisualStyleBackColor = true;
-            RandomItemButton.Click += RandomItemButton_Click;
-            // 
             // ItemsTab
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -287,5 +314,7 @@
         private TextBox DescriptionTextbox;
         private Label DescriptionTxt;
         private Button RandomItemButton;
+        private Label CategoryTxt;
+        private ComboBox CategoryCombobox;
     }
 }

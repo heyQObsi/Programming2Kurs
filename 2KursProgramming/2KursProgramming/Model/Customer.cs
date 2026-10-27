@@ -55,7 +55,7 @@ namespace _2KursProgramming.Model
         {
             Fullname = fullname;
             Address = address;
-            _id = IdGenerator.Schetchiki;
+            _id = IdGenerator.CustGetNextId();
         }
         public override string ToString()
         {

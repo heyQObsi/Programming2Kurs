@@ -28,7 +28,7 @@ namespace _2KursProgramming.Model
         /// <summary>
         /// Возвращает и задаёт наименование товара. Длина названия не должна превыщать 200 символов
         /// </summary>
-        private string Name
+        public string Name
         {
             get { return _name; }
             set
@@ -40,7 +40,7 @@ namespace _2KursProgramming.Model
         /// <summary>
         /// Возвращает и задаёт информацию о товаре. Длина информации не должна превыщать 1000 символов
         /// </summary>
-        private string Info
+        public string Info
         {
             get { return _info; }
             set
@@ -52,7 +52,7 @@ namespace _2KursProgramming.Model
         /// <summary>
         /// Возвращает и задаёт стоимость товара. Содержит только числа в диапозоне (0; 100000)
         /// </summary>
-        private double Cost
+        public double Cost
         {
             get { return _cost; }
             set
@@ -62,6 +62,12 @@ namespace _2KursProgramming.Model
                 _cost = value;
             }
         }
+        public int Id => _id;
+        public Category Category
+        {
+            get;
+            set;
+        }
         public Item() {}
         /// <summary>
         /// Создаёт экземляр класса <see cref="Item"/>
@@ -69,12 +75,13 @@ namespace _2KursProgramming.Model
         /// <param name="name">Наименование товара</param>
         /// <param name="info">Информация о товаре</param>
         /// <param name="cost">Стоимость товара</param>
-        public Item(string name, string info, double cost)
+        public Item(string name, string info, double cost, Category category)
         {
             Name = name;
             Info = info;
             Cost = cost;
-            _id = IdGenerator.Schetchiki;
+            _id = IdGenerator.ItemGetNextId();
+            Category = category;
         }
         public override string ToString()
         {
