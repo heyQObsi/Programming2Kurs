@@ -5,14 +5,14 @@ using System.Text;
 
 namespace _2KursProgramming.Model
 {
-    internal class Address
+    public class Address
     {
         private double? _index;
         private string? _country;
         private string? _city;
         private string? _street;
         private string? _building;
-        private string? _apartament;
+        private string? _apartment;
         //
         public string? Country
         {
@@ -50,23 +50,23 @@ namespace _2KursProgramming.Model
                 _building = value;
             }
         }
-        public string? Apartament
+        public string? Apartment
         {
-            get { return _apartament; }
+            get { return _apartment; }
             set
             {
                 ValueValidator.AssertStringOnLength(value, 10, "Apartament");
-                _apartament = value;
+                _apartment = value;
             }
         }
-        public Address(double? index, string? country, string? city, string? street, string? building, string? apartament)
+        public Address(double? index, string? country, string? city, string? street, string? building, string? apartment)
         {
             _index = index;
             Country = country;
             City = city;
             Street = street;
             Building = building;
-            Apartament = apartament;
+            Apartment = apartment;
         }
     }
 }

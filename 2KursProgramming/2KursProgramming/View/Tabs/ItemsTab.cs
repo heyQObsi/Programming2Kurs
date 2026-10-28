@@ -42,6 +42,7 @@ namespace _2KursProgramming.View.Tabs
             Item product = new Item(NameTextbox.Text, DescriptionTextbox.Text, int.Parse(CostTextbox.Text), category);
             items.Add(product);
             IdItemTextbox.Text = IdGenerator.ItemGetCurrentId().ToString();
+            
         }
 
         private void ItemRemoveButton_Click(object sender, EventArgs e)
@@ -79,6 +80,8 @@ namespace _2KursProgramming.View.Tabs
             else
             {
                 CostTextbox.BackColor = Color.Red;
+                ErrorProvider errorProvider1 = new ErrorProvider();
+                errorProvider1.SetError(CostTextbox, "Not");
             }
         }
 
@@ -107,6 +110,11 @@ namespace _2KursProgramming.View.Tabs
         }
 
         private void CategoryCombobox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void ItemInfoPanel_Paint(object sender, PaintEventArgs e)
         {
 
         }

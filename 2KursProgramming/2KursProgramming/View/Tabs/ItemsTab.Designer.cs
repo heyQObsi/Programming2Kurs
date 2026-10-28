@@ -89,6 +89,7 @@
             ItemInfoPanel.Name = "ItemInfoPanel";
             ItemInfoPanel.Size = new Size(462, 581);
             ItemInfoPanel.TabIndex = 1;
+            ItemInfoPanel.Paint += ItemInfoPanel_Paint;
             // 
             // CategoryCombobox
             // 

@@ -46,11 +46,13 @@
             CustIdTxt = new Label();
             SelectedCustomerTxt = new Label();
             NoNamePanel = new Panel();
+            addressControl1 = new _2KursProgramming.View.Tabs.Controls.AddressControl();
             CustMainLayoutPanel.SuspendLayout();
             CustomersPanel.SuspendLayout();
             CustButtonPanel.SuspendLayout();
             SelectedCustLayoutPanel.SuspendLayout();
             SelectedCustPanel.SuspendLayout();
+            NoNamePanel.SuspendLayout();
             SuspendLayout();
             // 
             // CustMainLayoutPanel
@@ -252,11 +254,21 @@
             // NoNamePanel
             // 
             NoNamePanel.BackColor = SystemColors.Window;
+            NoNamePanel.Controls.Add(addressControl1);
             NoNamePanel.Dock = DockStyle.Fill;
             NoNamePanel.Location = new Point(3, 230);
             NoNamePanel.Name = "NoNamePanel";
             NoNamePanel.Size = new Size(456, 348);
             NoNamePanel.TabIndex = 1;
+            // 
+            // addressControl1
+            // 
+            addressControl1.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
+            addressControl1.BackColor = SystemColors.Window;
+            addressControl1.Location = new Point(3, 3);
+            addressControl1.Name = "addressControl1";
+            addressControl1.Size = new Size(459, 151);
+            addressControl1.TabIndex = 0;
             // 
             // CustomersTab
             // 
@@ -272,6 +284,7 @@
             SelectedCustLayoutPanel.ResumeLayout(false);
             SelectedCustPanel.ResumeLayout(false);
             SelectedCustPanel.PerformLayout();
+            NoNamePanel.ResumeLayout(false);
             ResumeLayout(false);
         }
 
@@ -295,5 +308,6 @@
         private Label SelectedCustomerTxt;
         private Panel NoNamePanel;
         private Button RandCustButton;
+        private Controls.AddressControl addressControl1;
     }
 }

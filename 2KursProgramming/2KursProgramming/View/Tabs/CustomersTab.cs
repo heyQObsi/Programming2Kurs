@@ -35,6 +35,7 @@ namespace _2KursProgramming.View.Tabs
             Customer template_customer = new Customer(FullNameTextbox.Text, AddressTextbox.Text);
             customers.Add(template_customer);
             CustIdTextbox.Text = IdGenerator.CustGetCurrentId().ToString();
+            
         }
 
         private void CustRemoveButton_Click(object sender, EventArgs e)
