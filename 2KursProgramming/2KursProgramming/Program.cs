@@ -1,3 +1,6 @@
+using _2KursProgramming.View.Tabs;
+using _2KursProgramming.View.Tabs.Controls;
+
 namespace _2KursProgramming
 {
     internal static class Program

@@ -8,13 +8,25 @@ namespace _2KursProgramming.Model
     public class Address
     {
         private double? _index;
-        private string? _country;
+        private string _country;
         private string? _city;
         private string? _street;
         private string? _building;
         private string? _apartment;
         //
-        public string? Country
+        public double? Index
+        {
+            get { return _index; }
+            set
+            {
+                if (value<0 || value > 999999)
+                {
+                    throw new ArgumentOutOfRangeException("value");
+                }
+                else { _index= value; }
+            }
+        }
+        public string Country
         {
             get { return _country; }
             set
@@ -59,6 +71,7 @@ namespace _2KursProgramming.Model
                 _apartment = value;
             }
         }
+        public Address() { }
         public Address(double? index, string? country, string? city, string? street, string? building, string? apartment)
         {
             _index = index;

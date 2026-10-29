@@ -12,9 +12,7 @@ namespace _2KursProgramming.Services
         {
             if (value.Length > maxLength)
             {
-                Exception ex;
-                MessageBox.Show("FF", $"{propertyName} должен быть меньше {maxLength} символов", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                //throw new ArgumentException($"{propertyName} должен быть меньше {maxLength} символов");
+                throw new ArgumentException($"{propertyName} должен быть меньше {maxLength} символов");
             }
         }
     }

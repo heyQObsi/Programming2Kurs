@@ -20,7 +20,7 @@ namespace _2KursProgramming.Model
         /// <summary>
         /// Фактический адрес проживания клиента
         /// </summary>
-        private string _address = null;
+        private Address? _address;
         /// <summary>
         /// Возвращает и задаёт полное имя клиента. Длина имени не должна превыщать 200 символов.
         /// </summary>
@@ -33,15 +33,15 @@ namespace _2KursProgramming.Model
                 _fullname = value;
             }
         }
+        public int Id => _id;
         /// <summary>
         /// Возвращает и задёт адрес проживания клиента. Длина адреса не должна превыщать 500 символов.
         /// </summary>
-        public string Address
+        public Address? Address
         {
             get { return _address; }
             set
             {
-                ValueValidator.AssertStringOnLength(value, 500, "Address");
                 _address = value;
             }
         }
@@ -51,7 +51,7 @@ namespace _2KursProgramming.Model
         /// </summary>
         /// <param name="fullname">Полное имя клиента</param>
         /// <param name="address">Фактический адрес проживания клиента</param>
-        public Customer(string fullname, string address)
+        public Customer(string fullname, Address address)
         {
             Fullname = fullname;
             Address = address;
@@ -60,7 +60,7 @@ namespace _2KursProgramming.Model
         public override string ToString()
         {
             // Возвращаем строку в том виде, в каком хотим видеть её в Листбоксе
-            return $"ID: {_id} Имя: {_fullname} Адресс: {Address}";
+            return $"ID: {_id} Имя: {_fullname} Адресс: Индекс: {Address?.Index} Страна:{Address?.Country} Город: {Address?.City} Улица: {Address?.Street} Дом: {Address?.Building} Квартира: {Address?.Apartment}";
         }
     }
 }

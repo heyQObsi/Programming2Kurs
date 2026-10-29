@@ -38,15 +38,15 @@
             CustomersTxt = new Label();
             SelectedCustLayoutPanel = new TableLayoutPanel();
             SelectedCustPanel = new Panel();
-            AddressTextbox = new TextBox();
             FullNameTextbox = new TextBox();
             CustIdTextbox = new TextBox();
-            AddressTxt = new Label();
             FullNameTxt = new Label();
             CustIdTxt = new Label();
             SelectedCustomerTxt = new Label();
             NoNamePanel = new Panel();
             addressControl1 = new _2KursProgramming.View.Tabs.Controls.AddressControl();
+            AddressTxt = new Label();
+            AddressTextbox = new TextBox();
             CustMainLayoutPanel.SuspendLayout();
             CustomersPanel.SuspendLayout();
             CustButtonPanel.SuspendLayout();
@@ -185,17 +185,6 @@
             SelectedCustPanel.Size = new Size(456, 221);
             SelectedCustPanel.TabIndex = 0;
             // 
-            // AddressTextbox
-            // 
-            AddressTextbox.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
-            AddressTextbox.Location = new Point(73, 92);
-            AddressTextbox.MaximumSize = new Size(800, 126);
-            AddressTextbox.Multiline = true;
-            AddressTextbox.Name = "AddressTextbox";
-            AddressTextbox.Size = new Size(380, 126);
-            AddressTextbox.TabIndex = 6;
-            AddressTextbox.TextChanged += AddressTextbox_TextChanged;
-            // 
             // FullNameTextbox
             // 
             FullNameTextbox.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
@@ -213,15 +202,6 @@
             CustIdTextbox.ReadOnly = true;
             CustIdTextbox.Size = new Size(137, 23);
             CustIdTextbox.TabIndex = 4;
-            // 
-            // AddressTxt
-            // 
-            AddressTxt.AutoSize = true;
-            AddressTxt.Location = new Point(0, 95);
-            AddressTxt.Name = "AddressTxt";
-            AddressTxt.Size = new Size(52, 15);
-            AddressTxt.TabIndex = 3;
-            AddressTxt.Text = "Address:";
             // 
             // FullNameTxt
             // 
@@ -270,6 +250,26 @@
             addressControl1.Size = new Size(459, 151);
             addressControl1.TabIndex = 0;
             // 
+            // AddressTxt
+            // 
+            AddressTxt.AutoSize = true;
+            AddressTxt.Location = new Point(0, 95);
+            AddressTxt.Name = "AddressTxt";
+            AddressTxt.Size = new Size(52, 15);
+            AddressTxt.TabIndex = 3;
+            AddressTxt.Text = "Address:";
+            // 
+            // AddressTextbox
+            // 
+            AddressTextbox.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            AddressTextbox.Location = new Point(73, 92);
+            AddressTextbox.MaximumSize = new Size(800, 126);
+            AddressTextbox.Multiline = true;
+            AddressTextbox.Name = "AddressTextbox";
+            AddressTextbox.Size = new Size(380, 126);
+            AddressTextbox.TabIndex = 6;
+            AddressTextbox.TextChanged += AddressTextbox_TextChanged;
+            // 
             // CustomersTab
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -299,15 +299,15 @@
         private Label CustomersTxt;
         private TableLayoutPanel SelectedCustLayoutPanel;
         private Panel SelectedCustPanel;
-        private TextBox AddressTextbox;
         private TextBox FullNameTextbox;
         private TextBox CustIdTextbox;
-        private Label AddressTxt;
         private Label FullNameTxt;
         private Label CustIdTxt;
         private Label SelectedCustomerTxt;
         private Panel NoNamePanel;
         private Button RandCustButton;
         private Controls.AddressControl addressControl1;
+        private TextBox AddressTextbox;
+        private Label AddressTxt;
     }
 }

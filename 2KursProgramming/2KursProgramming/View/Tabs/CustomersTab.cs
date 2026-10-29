@@ -1,5 +1,6 @@
 ﻿using _2KursProgramming.Model;
 using _2KursProgramming.Services;
+using _2KursProgramming.View.Tabs.Controls;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -32,7 +33,8 @@ namespace _2KursProgramming.View.Tabs
 
         private void AddCustButton_Click(object sender, EventArgs e)
         {
-            Customer template_customer = new Customer(FullNameTextbox.Text, AddressTextbox.Text);
+            Address AddressGenerator = new Address(addressControl1.AddressConstructor.Index, addressControl1.AddressConstructor.Country, addressControl1.AddressConstructor.City, addressControl1.AddressConstructor.Street, addressControl1.AddressConstructor.Building, addressControl1.AddressConstructor.Apartment);
+            Customer template_customer = new Customer(FullNameTextbox.Text, AddressGenerator);
             customers.Add(template_customer);
             CustIdTextbox.Text = IdGenerator.CustGetCurrentId().ToString();
             
@@ -48,8 +50,9 @@ namespace _2KursProgramming.View.Tabs
 
         private void RandCustButton_Click(object sender, EventArgs e)
         {
+            Address? _address = new Address(2, "Russianaaaaaa", "Tomskaaaa", "Litkinaaaaa", "8aaaa", "832aaaa");
             string[] RandomCustomer = CustomerFactory.CustGenerate(CustomerName, CustomerSurname, CustomerFathername, CustomerAddress);
-            Customer template_customer = new Customer(RandomCustomer[0], RandomCustomer[1]);
+            Customer template_customer = new Customer(RandomCustomer[0], _address);
             customers.Add(template_customer);
             CustIdTextbox.Text = IdGenerator.CustGetCurrentId().ToString();
         }
@@ -77,12 +80,12 @@ namespace _2KursProgramming.View.Tabs
                 AddressTextbox.BackColor = Color.White;
             }
         }
-
         private void CustomersListbox_SelectedIndexChanged(object sender, EventArgs e)
         {
             Customer? CustTub = CustomersListbox.SelectedItem as Customer;
-            FullNameTextbox.Text = CustTub.Fullname;
-            AddressTextbox.Text = CustTub.Address;
+            FullNameTextbox.Text = CustTub?.Fullname;
+            CustIdTextbox.Text = CustTub?.Id.ToString();
+            addressControl1.AddressSetter(CustTub.Address.Index, CustTub.Address.Country, CustTub.Address.City, CustTub.Address.Street, CustTub.Address.Building, CustTub.Address.Apartment);
         }
     }
 }

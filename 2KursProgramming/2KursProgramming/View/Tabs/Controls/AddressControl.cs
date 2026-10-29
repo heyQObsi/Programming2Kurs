@@ -1,4 +1,5 @@
 ﻿using _2KursProgramming.Model;
+using Newtonsoft.Json.Linq;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -11,27 +12,27 @@ namespace _2KursProgramming.View.Tabs.Controls
 {
     public partial class AddressControl : UserControl
     {
-        private Address? _address = new Address(2, "Russianaaaaaa", "Tomskaaaa", "Litkinaaaaa", "8aaaa", "832aaaa");
-        [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
-        public Address? ControlAddress1 { 
-            set { _address = value; } 
-            get
-            {
-                if(double.TryParse(PostIndexTextbox.Text, out double K))
-                {
-                    _address = new Address(K, CountryTextbox.Text, CityTextbox.Text, StreetTextbox.Text, BuildingTextbox.Text, ApartmentTextbox.Text);
-                }
-                return _address; 
-            }
-        }
+        //private Address? _address = new Address(2, "Russianaaaaaa", "Tomskaaaa", "Litkinaaaaa", "8aaaa", "832aaaa");
+        //[DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
+        //public Address? ControlAddress1 { 
+        //    set { _address = value; } 
+        //    get
+        //    {
+        //        if(double.TryParse(PostIndexTextbox.Text, out double K))
+        //        {
+        //            _address = new Address(K, CountryTextbox.Text, CityTextbox.Text, StreetTextbox.Text, BuildingTextbox.Text, ApartmentTextbox.Text);
+        //        }
+        //        return _address; 
+        //    }
+        //}
         public AddressControl()
         {
             InitializeComponent();
-            CityTextbox.Text = ControlAddress1?.City;
-            CountryTextbox.Text = ControlAddress1?.Country;
-            StreetTextbox.Text = ControlAddress1?.Street;
-            BuildingTextbox.Text = ControlAddress1?.Building;
-            ApartmentTextbox.Text = ControlAddress1?.Apartment;
+            //CityTextbox.Text = ControlAddress1?.City;
+            //CountryTextbox.Text = ControlAddress1?.Country;
+            //StreetTextbox.Text = ControlAddress1?.Street;
+            //BuildingTextbox.Text = ControlAddress1?.Building;
+            //ApartmentTextbox.Text = ControlAddress1?.Apartment;
         }
 
         private void PostIndexTextbox_TextChanged(object sender, EventArgs e)
@@ -45,7 +46,7 @@ namespace _2KursProgramming.View.Tabs.Controls
                 PostIndexTextbox.BackColor = Color.Red;
             }
         }
-
+        
         private void CountryTextbox_TextChanged(object sender, EventArgs e)
         {
             if (CountryTextbox.Text.Length > 50)
@@ -104,6 +105,41 @@ namespace _2KursProgramming.View.Tabs.Controls
             {
                 ApartmentTextbox.BackColor = Color.White;
             }
+        }
+        private Address TestAddress = new Address(1, "Test", "Test", "Test", "Test", "Test");
+        [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
+        public Address AddressConstructor
+        {
+            get
+            {
+                if (double.TryParse(PostIndexTextbox.Text, out double v))
+                {
+                    TestAddress.Index = v;
+                }
+                else
+                {
+                    TestAddress.Index = null;
+                }
+                TestAddress.Country = CountryTextbox.Text;
+                TestAddress.City = CityTextbox.Text;
+                TestAddress.Street = StreetTextbox.Text;
+                TestAddress.Building = BuildingTextbox.Text;
+                TestAddress.Apartment = ApartmentTextbox.Text;
+                return TestAddress;
+            }
+            set
+            {
+
+            }
+        }
+        public void AddressSetter(double? postindex, string? country, string? city, string? street, string? building, string? apartment)
+        {
+            PostIndexTextbox.Text = postindex.ToString();
+            CountryTextbox.Text = country;
+            CityTextbox.Text = city;
+            StreetTextbox.Text = street;
+            BuildingTextbox.Text= building;
+            ApartmentTextbox.Text = apartment;
         }
     }
 }

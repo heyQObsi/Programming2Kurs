@@ -56,11 +56,11 @@ namespace _2KursProgramming.View.Tabs
         private void ItemsListbox_SelectedIndexChanged(object sender, EventArgs e)
         {
             Item? ItemTub = ItemsListbox.SelectedItem as Item;
-            IdItemTextbox.Text = ItemTub.Id.ToString();
-            NameTextbox.Text = ItemTub.Name;
-            DescriptionTextbox.Text = ItemTub.Info;
-            CostTextbox.Text = ItemTub.Cost.ToString();
-            CategoryCombobox.Text = ItemTub.Category.ToString();
+            IdItemTextbox.Text = ItemTub?.Id.ToString();
+            NameTextbox.Text = ItemTub?.Name;
+            DescriptionTextbox.Text = ItemTub?.Info;
+            CostTextbox.Text = ItemTub?.Cost.ToString();
+            CategoryCombobox.Text = ItemTub?.Category.ToString();
         }
 
         private void RandomItemButton_Click(object sender, EventArgs e)
