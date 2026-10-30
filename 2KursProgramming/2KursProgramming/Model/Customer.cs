@@ -7,7 +7,7 @@ using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace _2KursProgramming.Model
 {
-    internal class Customer
+    public class Customer
     {
         /// <summary>
         /// Уникальный номер клиента в БД

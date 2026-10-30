@@ -45,14 +45,11 @@
             SelectedCustomerTxt = new Label();
             NoNamePanel = new Panel();
             addressControl1 = new _2KursProgramming.View.Tabs.Controls.AddressControl();
-            AddressTxt = new Label();
-            AddressTextbox = new TextBox();
             CustMainLayoutPanel.SuspendLayout();
             CustomersPanel.SuspendLayout();
             CustButtonPanel.SuspendLayout();
             SelectedCustLayoutPanel.SuspendLayout();
             SelectedCustPanel.SuspendLayout();
-            NoNamePanel.SuspendLayout();
             SuspendLayout();
             // 
             // CustMainLayoutPanel
@@ -163,8 +160,8 @@
             SelectedCustLayoutPanel.Location = new Point(335, 3);
             SelectedCustLayoutPanel.Name = "SelectedCustLayoutPanel";
             SelectedCustLayoutPanel.RowCount = 2;
-            SelectedCustLayoutPanel.RowStyles.Add(new RowStyle(SizeType.Percent, 39.0705681F));
-            SelectedCustLayoutPanel.RowStyles.Add(new RowStyle(SizeType.Percent, 60.9294319F));
+            SelectedCustLayoutPanel.RowStyles.Add(new RowStyle(SizeType.Percent, 56.97074F));
+            SelectedCustLayoutPanel.RowStyles.Add(new RowStyle(SizeType.Percent, 43.02926F));
             SelectedCustLayoutPanel.Size = new Size(462, 581);
             SelectedCustLayoutPanel.TabIndex = 3;
             // 
@@ -172,17 +169,16 @@
             // 
             SelectedCustPanel.AllowDrop = true;
             SelectedCustPanel.BackColor = SystemColors.Window;
-            SelectedCustPanel.Controls.Add(AddressTextbox);
+            SelectedCustPanel.Controls.Add(addressControl1);
             SelectedCustPanel.Controls.Add(FullNameTextbox);
             SelectedCustPanel.Controls.Add(CustIdTextbox);
-            SelectedCustPanel.Controls.Add(AddressTxt);
             SelectedCustPanel.Controls.Add(FullNameTxt);
             SelectedCustPanel.Controls.Add(CustIdTxt);
             SelectedCustPanel.Controls.Add(SelectedCustomerTxt);
             SelectedCustPanel.Dock = DockStyle.Fill;
             SelectedCustPanel.Location = new Point(3, 3);
             SelectedCustPanel.Name = "SelectedCustPanel";
-            SelectedCustPanel.Size = new Size(456, 221);
+            SelectedCustPanel.Size = new Size(456, 325);
             SelectedCustPanel.TabIndex = 0;
             // 
             // FullNameTextbox
@@ -234,41 +230,20 @@
             // NoNamePanel
             // 
             NoNamePanel.BackColor = SystemColors.Window;
-            NoNamePanel.Controls.Add(addressControl1);
             NoNamePanel.Dock = DockStyle.Fill;
-            NoNamePanel.Location = new Point(3, 230);
+            NoNamePanel.Location = new Point(3, 334);
             NoNamePanel.Name = "NoNamePanel";
-            NoNamePanel.Size = new Size(456, 348);
+            NoNamePanel.Size = new Size(456, 244);
             NoNamePanel.TabIndex = 1;
             // 
             // addressControl1
             // 
             addressControl1.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             addressControl1.BackColor = SystemColors.Window;
-            addressControl1.Location = new Point(3, 3);
+            addressControl1.Location = new Point(-3, 92);
             addressControl1.Name = "addressControl1";
             addressControl1.Size = new Size(459, 151);
             addressControl1.TabIndex = 0;
-            // 
-            // AddressTxt
-            // 
-            AddressTxt.AutoSize = true;
-            AddressTxt.Location = new Point(0, 95);
-            AddressTxt.Name = "AddressTxt";
-            AddressTxt.Size = new Size(52, 15);
-            AddressTxt.TabIndex = 3;
-            AddressTxt.Text = "Address:";
-            // 
-            // AddressTextbox
-            // 
-            AddressTextbox.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
-            AddressTextbox.Location = new Point(73, 92);
-            AddressTextbox.MaximumSize = new Size(800, 126);
-            AddressTextbox.Multiline = true;
-            AddressTextbox.Name = "AddressTextbox";
-            AddressTextbox.Size = new Size(380, 126);
-            AddressTextbox.TabIndex = 6;
-            AddressTextbox.TextChanged += AddressTextbox_TextChanged;
             // 
             // CustomersTab
             // 
@@ -284,7 +259,6 @@
             SelectedCustLayoutPanel.ResumeLayout(false);
             SelectedCustPanel.ResumeLayout(false);
             SelectedCustPanel.PerformLayout();
-            NoNamePanel.ResumeLayout(false);
             ResumeLayout(false);
         }
 
@@ -307,7 +281,5 @@
         private Panel NoNamePanel;
         private Button RandCustButton;
         private Controls.AddressControl addressControl1;
-        private TextBox AddressTextbox;
-        private Label AddressTxt;
     }
 }

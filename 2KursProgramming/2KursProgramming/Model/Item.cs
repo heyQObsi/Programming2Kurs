@@ -7,7 +7,7 @@ using _2KursProgramming.Services;
 
 namespace _2KursProgramming.Model
 {
-    internal class Item
+    public class Item
     {
         /// <summary>
         /// Уникальный номер товара в БД

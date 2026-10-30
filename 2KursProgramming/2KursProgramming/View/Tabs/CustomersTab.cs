@@ -26,6 +26,19 @@ namespace _2KursProgramming.View.Tabs
 
 
         BindingList<Customer> customers = new BindingList<Customer>();
+        [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
+        public BindingList<Customer> CustomersUpdater
+        {
+            get {  return customers; }
+            set
+            {
+                customers.Clear();
+                foreach (Customer customer in value)
+                {
+                    customers.Add(customer);
+                }
+            }
+        }
         private void tableLayoutPanel1_Paint(object sender, PaintEventArgs e)
         {
 
@@ -68,24 +81,12 @@ namespace _2KursProgramming.View.Tabs
                 FullNameTextbox.BackColor = Color.White;
             }
         }
-
-        private void AddressTextbox_TextChanged(object sender, EventArgs e)
-        {
-            if (AddressTextbox.Text.Length > 500)
-            {
-                AddressTextbox.BackColor = Color.Red;
-            }
-            else
-            {
-                AddressTextbox.BackColor = Color.White;
-            }
-        }
         private void CustomersListbox_SelectedIndexChanged(object sender, EventArgs e)
         {
             Customer? CustTub = CustomersListbox.SelectedItem as Customer;
             FullNameTextbox.Text = CustTub?.Fullname;
             CustIdTextbox.Text = CustTub?.Id.ToString();
-            addressControl1.AddressSetter(CustTub.Address.Index, CustTub.Address.Country, CustTub.Address.City, CustTub.Address.Street, CustTub.Address.Building, CustTub.Address.Apartment);
+            addressControl1.AddressSetter(CustTub?.Address.Index, CustTub?.Address.Country, CustTub?.Address.City, CustTub?.Address.Street, CustTub?.Address.Building, CustTub?.Address.Apartment);
         }
     }
 }

@@ -21,6 +21,19 @@ namespace _2KursProgramming.View.Tabs
             CategoryCombobox.DataSource = Enum.GetValues(typeof(Category));
         }
         BindingList<Item> items = new BindingList<Item>();
+        [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
+        public BindingList<Item> ItemsUpdater
+        {
+            get { return items; }
+            set
+            {
+                items.Clear();
+                foreach(Item item in value)
+                {
+                    items.Add(item);
+                }
+            }
+        }
         private void tableLayoutPanel1_Paint(object sender, PaintEventArgs e)
         {
 
@@ -39,8 +52,16 @@ namespace _2KursProgramming.View.Tabs
         private void ItemAddButton_Click(object sender, EventArgs e)
         {
             Category category = (Category)CategoryCombobox.SelectedItem;
-            Item product = new Item(NameTextbox.Text, DescriptionTextbox.Text, int.Parse(CostTextbox.Text), category);
-            items.Add(product);
+            if (int.TryParse(CostTextbox.Text, out int v))
+            {
+                Item product = new Item(NameTextbox.Text, DescriptionTextbox.Text, int.Parse(CostTextbox.Text), category);
+                items.Add(product);
+            }
+            else
+            {
+                Item product = new Item(NameTextbox.Text, DescriptionTextbox.Text, 0, category);
+                items.Add(product);
+            }
             IdItemTextbox.Text = IdGenerator.ItemGetCurrentId().ToString();
             
         }

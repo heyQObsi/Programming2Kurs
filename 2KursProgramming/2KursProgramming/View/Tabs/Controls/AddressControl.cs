@@ -12,27 +12,28 @@ namespace _2KursProgramming.View.Tabs.Controls
 {
     public partial class AddressControl : UserControl
     {
-        //private Address? _address = new Address(2, "Russianaaaaaa", "Tomskaaaa", "Litkinaaaaa", "8aaaa", "832aaaa");
-        //[DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
-        //public Address? ControlAddress1 { 
-        //    set { _address = value; } 
-        //    get
-        //    {
-        //        if(double.TryParse(PostIndexTextbox.Text, out double K))
-        //        {
-        //            _address = new Address(K, CountryTextbox.Text, CityTextbox.Text, StreetTextbox.Text, BuildingTextbox.Text, ApartmentTextbox.Text);
-        //        }
-        //        return _address; 
-        //    }
-        //}
+        private Address? _address = new Address();
+        [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
+        public Address? ControlAddress1
+        {
+            set { _address = value; }
+            get
+            {
+                if (double.TryParse(PostIndexTextbox.Text, out double K))
+                {
+                    _address = new Address(K, CountryTextbox.Text, CityTextbox.Text, StreetTextbox.Text, BuildingTextbox.Text, ApartmentTextbox.Text);
+                }
+                return _address;
+            }
+        }
         public AddressControl()
         {
             InitializeComponent();
-            //CityTextbox.Text = ControlAddress1?.City;
-            //CountryTextbox.Text = ControlAddress1?.Country;
-            //StreetTextbox.Text = ControlAddress1?.Street;
-            //BuildingTextbox.Text = ControlAddress1?.Building;
-            //ApartmentTextbox.Text = ControlAddress1?.Apartment;
+            CityTextbox.Text = ControlAddress1?.City;
+            CountryTextbox.Text = ControlAddress1?.Country;
+            StreetTextbox.Text = ControlAddress1?.Street;
+            BuildingTextbox.Text = ControlAddress1?.Building;
+            ApartmentTextbox.Text = ControlAddress1?.Apartment;
         }
 
         private void PostIndexTextbox_TextChanged(object sender, EventArgs e)
