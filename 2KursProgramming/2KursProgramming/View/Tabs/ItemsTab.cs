@@ -51,19 +51,25 @@ namespace _2KursProgramming.View.Tabs
 
         private void ItemAddButton_Click(object sender, EventArgs e)
         {
-            Category category = (Category)CategoryCombobox.SelectedItem;
-            if (int.TryParse(CostTextbox.Text, out int v))
+            try
             {
-                Item product = new Item(NameTextbox.Text, DescriptionTextbox.Text, int.Parse(CostTextbox.Text), category);
-                items.Add(product);
+                Category category = (Category)CategoryCombobox.SelectedItem;
+                if (int.TryParse(CostTextbox.Text, out int v))
+                {
+                    Item product = new Item(NameTextbox.Text, DescriptionTextbox.Text, int.Parse(CostTextbox.Text), category);
+                    items.Add(product);
+                }
+                else
+                {
+                    Item product = new Item(NameTextbox.Text, DescriptionTextbox.Text, 0, category);
+                    items.Add(product);
+                }
+                IdItemTextbox.Text = IdGenerator.ItemGetCurrentId().ToString();
             }
-            else
+            catch (ArgumentException Ex)
             {
-                Item product = new Item(NameTextbox.Text, DescriptionTextbox.Text, 0, category);
-                items.Add(product);
+                MessageBox.Show(Ex.Message, "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-            IdItemTextbox.Text = IdGenerator.ItemGetCurrentId().ToString();
-            
         }
 
         private void ItemRemoveButton_Click(object sender, EventArgs e)
@@ -101,8 +107,6 @@ namespace _2KursProgramming.View.Tabs
             else
             {
                 CostTextbox.BackColor = Color.Red;
-                ErrorProvider errorProvider1 = new ErrorProvider();
-                errorProvider1.SetError(CostTextbox, "Not");
             }
         }
 

@@ -86,6 +86,7 @@ namespace _2KursProgramming.View.Tabs.Controls
 
         private void BuildingTextbox_TextChanged(object sender, EventArgs e)
         {
+            ErrorProvider errorProvider1 = new ErrorProvider();
             if (BuildingTextbox.Text.Length > 10)
             {
                 BuildingTextbox.BackColor = Color.Red;

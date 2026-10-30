@@ -21,7 +21,7 @@ namespace _2KursProgramming.Model
             {
                 if (value<0 || value > 999999)
                 {
-                    throw new ArgumentOutOfRangeException("value");
+                    throw new ArgumentException("Index должен быть в диапозоне от 0 до 999.999");
                 }
                 else { _index= value; }
             }

@@ -46,11 +46,17 @@ namespace _2KursProgramming.View.Tabs
 
         private void AddCustButton_Click(object sender, EventArgs e)
         {
-            Address AddressGenerator = new Address(addressControl1.AddressConstructor.Index, addressControl1.AddressConstructor.Country, addressControl1.AddressConstructor.City, addressControl1.AddressConstructor.Street, addressControl1.AddressConstructor.Building, addressControl1.AddressConstructor.Apartment);
-            Customer template_customer = new Customer(FullNameTextbox.Text, AddressGenerator);
-            customers.Add(template_customer);
-            CustIdTextbox.Text = IdGenerator.CustGetCurrentId().ToString();
-            
+            try
+            {
+                Address AddressGenerator = new Address(addressControl1.AddressConstructor.Index, addressControl1.AddressConstructor.Country, addressControl1.AddressConstructor.City, addressControl1.AddressConstructor.Street, addressControl1.AddressConstructor.Building, addressControl1.AddressConstructor.Apartment);
+                Customer template_customer = new Customer(FullNameTextbox.Text, AddressGenerator);
+                customers.Add(template_customer);
+                CustIdTextbox.Text = IdGenerator.CustGetCurrentId().ToString();
+            }
+            catch (ArgumentException Ex)
+            {
+                MessageBox.Show(Ex.Message, "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
         private void CustRemoveButton_Click(object sender, EventArgs e)
