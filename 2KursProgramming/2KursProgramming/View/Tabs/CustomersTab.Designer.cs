@@ -38,13 +38,14 @@
             CustomersTxt = new Label();
             SelectedCustLayoutPanel = new TableLayoutPanel();
             SelectedCustPanel = new Panel();
+            addressControl1 = new _2KursProgramming.View.Tabs.Controls.AddressControl();
             FullNameTextbox = new TextBox();
             CustIdTextbox = new TextBox();
             FullNameTxt = new Label();
             CustIdTxt = new Label();
             SelectedCustomerTxt = new Label();
             NoNamePanel = new Panel();
-            addressControl1 = new _2KursProgramming.View.Tabs.Controls.AddressControl();
+            CustEditButton = new Button();
             CustMainLayoutPanel.SuspendLayout();
             CustomersPanel.SuspendLayout();
             CustButtonPanel.SuspendLayout();
@@ -82,13 +83,15 @@
             // CustButtonPanel
             // 
             CustButtonPanel.Anchor = AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
-            CustButtonPanel.ColumnCount = 3;
-            CustButtonPanel.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 33.3333321F));
-            CustButtonPanel.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 33.3333321F));
-            CustButtonPanel.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 33.3333321F));
+            CustButtonPanel.ColumnCount = 4;
+            CustButtonPanel.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 25F));
+            CustButtonPanel.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 25F));
+            CustButtonPanel.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 25F));
+            CustButtonPanel.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 25F));
             CustButtonPanel.Controls.Add(AddCustButton, 0, 0);
             CustButtonPanel.Controls.Add(CustRemoveButton, 1, 0);
-            CustButtonPanel.Controls.Add(RandCustButton, 2, 0);
+            CustButtonPanel.Controls.Add(RandCustButton, 3, 0);
+            CustButtonPanel.Controls.Add(CustEditButton, 2, 0);
             CustButtonPanel.Location = new Point(3, 528);
             CustButtonPanel.Name = "CustButtonPanel";
             CustButtonPanel.RowCount = 1;
@@ -101,7 +104,7 @@
             AddCustButton.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             AddCustButton.Location = new Point(3, 3);
             AddCustButton.Name = "AddCustButton";
-            AddCustButton.Size = new Size(100, 44);
+            AddCustButton.Size = new Size(74, 44);
             AddCustButton.TabIndex = 0;
             AddCustButton.Text = "Add";
             AddCustButton.UseVisualStyleBackColor = true;
@@ -110,9 +113,9 @@
             // CustRemoveButton
             // 
             CustRemoveButton.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
-            CustRemoveButton.Location = new Point(109, 3);
+            CustRemoveButton.Location = new Point(83, 3);
             CustRemoveButton.Name = "CustRemoveButton";
-            CustRemoveButton.Size = new Size(100, 44);
+            CustRemoveButton.Size = new Size(74, 44);
             CustRemoveButton.TabIndex = 1;
             CustRemoveButton.Text = "Remove";
             CustRemoveButton.UseVisualStyleBackColor = true;
@@ -121,9 +124,9 @@
             // RandCustButton
             // 
             RandCustButton.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
-            RandCustButton.Location = new Point(215, 3);
+            RandCustButton.Location = new Point(243, 3);
             RandCustButton.Name = "RandCustButton";
-            RandCustButton.Size = new Size(102, 44);
+            RandCustButton.Size = new Size(74, 44);
             RandCustButton.TabIndex = 2;
             RandCustButton.Text = "Random";
             RandCustButton.UseVisualStyleBackColor = true;
@@ -181,6 +184,15 @@
             SelectedCustPanel.Size = new Size(456, 325);
             SelectedCustPanel.TabIndex = 0;
             // 
+            // addressControl1
+            // 
+            addressControl1.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
+            addressControl1.BackColor = SystemColors.Window;
+            addressControl1.Location = new Point(-3, 92);
+            addressControl1.Name = "addressControl1";
+            addressControl1.Size = new Size(459, 151);
+            addressControl1.TabIndex = 0;
+            // 
             // FullNameTextbox
             // 
             FullNameTextbox.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
@@ -236,14 +248,16 @@
             NoNamePanel.Size = new Size(456, 244);
             NoNamePanel.TabIndex = 1;
             // 
-            // addressControl1
+            // CustEditButton
             // 
-            addressControl1.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
-            addressControl1.BackColor = SystemColors.Window;
-            addressControl1.Location = new Point(-3, 92);
-            addressControl1.Name = "addressControl1";
-            addressControl1.Size = new Size(459, 151);
-            addressControl1.TabIndex = 0;
+            CustEditButton.Dock = DockStyle.Fill;
+            CustEditButton.Location = new Point(163, 3);
+            CustEditButton.Name = "CustEditButton";
+            CustEditButton.Size = new Size(74, 44);
+            CustEditButton.TabIndex = 3;
+            CustEditButton.Text = "Edit";
+            CustEditButton.UseVisualStyleBackColor = true;
+            CustEditButton.Click += CustEditButton_Click;
             // 
             // CustomersTab
             // 
@@ -281,5 +295,6 @@
         private Panel NoNamePanel;
         private Button RandCustButton;
         private Controls.AddressControl addressControl1;
+        private Button CustEditButton;
     }
 }

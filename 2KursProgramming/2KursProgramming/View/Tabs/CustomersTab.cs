@@ -29,7 +29,7 @@ namespace _2KursProgramming.View.Tabs
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
         public BindingList<Customer> CustomersUpdater
         {
-            get {  return customers; }
+            get { return customers; }
             set
             {
                 customers.Clear();
@@ -39,11 +39,6 @@ namespace _2KursProgramming.View.Tabs
                 }
             }
         }
-        private void tableLayoutPanel1_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
         private void AddCustButton_Click(object sender, EventArgs e)
         {
             try
@@ -93,6 +88,30 @@ namespace _2KursProgramming.View.Tabs
             FullNameTextbox.Text = CustTub?.Fullname;
             CustIdTextbox.Text = CustTub?.Id.ToString();
             addressControl1.AddressSetter(CustTub?.Address.Index, CustTub?.Address.Country, CustTub?.Address.City, CustTub?.Address.Street, CustTub?.Address.Building, CustTub?.Address.Apartment);
+        }
+
+        private void CustEditButton_Click(object sender, EventArgs e)
+        {
+            Customer? CustTub = CustomersListbox.SelectedItem as Customer;
+            int CustSelectedIndex = CustomersListbox.SelectedIndex;
+            try
+            {
+                if  (CustTub != null)
+                {
+                    CustTub.Fullname = FullNameTextbox.Text;
+                    CustTub.Address.Index = addressControl1.AddressConstructor.Index;
+                    CustTub.Address.Country = addressControl1.AddressConstructor.Country;
+                    CustTub.Address.City = addressControl1.AddressConstructor.City;
+                    CustTub.Address.Street = addressControl1.AddressConstructor.Street;
+                    CustTub.Address.Building = addressControl1.AddressConstructor.Building;
+                    CustTub.Address.Apartment = addressControl1.AddressConstructor.Apartment;
+                    customers[CustSelectedIndex] = CustTub;
+                }
+            }
+            catch (ArgumentException Ex)
+            {
+                MessageBox.Show(Ex.Message, "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
     }
 }

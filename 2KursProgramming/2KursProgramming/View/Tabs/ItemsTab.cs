@@ -28,41 +28,39 @@ namespace _2KursProgramming.View.Tabs
             set
             {
                 items.Clear();
-                foreach(Item item in value)
+                foreach (Item item in value)
                 {
                     items.Add(item);
                 }
             }
         }
-        private void tableLayoutPanel1_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
-        private void label1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label3_Click(object sender, EventArgs e)
-        {
-
-        }
-
         private void ItemAddButton_Click(object sender, EventArgs e)
         {
             try
             {
-                Category category = (Category)CategoryCombobox.SelectedItem;
+                Category category = new Category();
+                if (CategoryCombobox.SelectedItem != null)
+                {
+                    category = (Category)CategoryCombobox.SelectedItem;
+                }
+                else
+                {
+                    category = default(Category);
+                }
                 if (int.TryParse(CostTextbox.Text, out int v))
                 {
                     Item product = new Item(NameTextbox.Text, DescriptionTextbox.Text, int.Parse(CostTextbox.Text), category);
                     items.Add(product);
                 }
+                else if (CostTextbox.Text == "")
+                {
+                    CostTextbox.Text = "0";
+                    Item product = new Item(NameTextbox.Text, DescriptionTextbox.Text, int.Parse(CostTextbox.Text), category);
+                    items.Add(product);
+                }
                 else
                 {
-                    Item product = new Item(NameTextbox.Text, DescriptionTextbox.Text, 0, category);
-                    items.Add(product);
+                    throw new ArgumentException($"Cost должен содержать только числа");
                 }
                 IdItemTextbox.Text = IdGenerator.ItemGetCurrentId().ToString();
             }
@@ -100,7 +98,7 @@ namespace _2KursProgramming.View.Tabs
 
         private void CostTextbox_TextChanged(object sender, EventArgs e)
         {
-            if ((double.TryParse(CostTextbox.Text, out double Cost) && Cost < 100000 && Cost > 0) || CostTextbox.Text == "")
+            if ((double.TryParse(CostTextbox.Text, out double Cost) && Cost < 100000 && Cost >= 0) || CostTextbox.Text == "")
             {
                 CostTextbox.BackColor = Color.White;
             }
@@ -134,14 +132,32 @@ namespace _2KursProgramming.View.Tabs
             }
         }
 
-        private void CategoryCombobox_SelectedIndexChanged(object sender, EventArgs e)
+        private void ItemEditButton_Click(object sender, EventArgs e)
         {
-
-        }
-
-        private void ItemInfoPanel_Paint(object sender, PaintEventArgs e)
-        {
-
+            Item? ItemTub = ItemsListbox.SelectedItem as Item;
+            int ItemSelectedIndex = ItemsListbox.SelectedIndex;
+            try
+            {
+                if (double.TryParse(CostTextbox.Text, out double v) && (ItemTub != null))
+                {
+                    ItemTub.Name = NameTextbox.Text;
+                    ItemTub.Info = DescriptionTextbox.Text;
+                    ItemTub.Cost = v;
+                    if (CategoryCombobox.SelectedItem != null)
+                    {
+                        ItemTub.Category = (Category)CategoryCombobox.SelectedItem;
+                    }
+                    else
+                    {
+                        ItemTub.Category = default(Category);
+                    }
+                    items[ItemSelectedIndex] = ItemTub;
+                }
+            }
+            catch (ArgumentException Ex)
+            {
+                MessageBox.Show(Ex.Message, "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
     }
 }

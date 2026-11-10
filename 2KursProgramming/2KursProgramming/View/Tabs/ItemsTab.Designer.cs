@@ -48,6 +48,7 @@
             ItemRemoveButton = new Button();
             ItemsListbox = new ListBox();
             ItemsTxt = new Label();
+            ItemEditButton = new Button();
             ItemMainLayoutPanel.SuspendLayout();
             ItemInfoPanel.SuspendLayout();
             ItemsPanel.SuspendLayout();
@@ -68,7 +69,6 @@
             ItemMainLayoutPanel.RowStyles.Add(new RowStyle(SizeType.Percent, 87.33945F));
             ItemMainLayoutPanel.Size = new Size(800, 587);
             ItemMainLayoutPanel.TabIndex = 0;
-            ItemMainLayoutPanel.Paint += tableLayoutPanel1_Paint;
             // 
             // ItemInfoPanel
             // 
@@ -89,7 +89,6 @@
             ItemInfoPanel.Name = "ItemInfoPanel";
             ItemInfoPanel.Size = new Size(462, 581);
             ItemInfoPanel.TabIndex = 1;
-            ItemInfoPanel.Paint += ItemInfoPanel_Paint;
             // 
             // CategoryCombobox
             // 
@@ -98,7 +97,6 @@
             CategoryCombobox.Name = "CategoryCombobox";
             CategoryCombobox.Size = new Size(136, 23);
             CategoryCombobox.TabIndex = 10;
-            CategoryCombobox.SelectedIndexChanged += CategoryCombobox_SelectedIndexChanged;
             // 
             // CategoryTxt
             // 
@@ -167,7 +165,6 @@
             IdItemTxt.Size = new Size(21, 15);
             IdItemTxt.TabIndex = 3;
             IdItemTxt.Text = "ID:";
-            IdItemTxt.Click += label3_Click;
             // 
             // CostTextbox
             // 
@@ -210,13 +207,15 @@
             // ItemButtonPanel
             // 
             ItemButtonPanel.Anchor = AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
-            ItemButtonPanel.ColumnCount = 3;
-            ItemButtonPanel.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 33.3333321F));
-            ItemButtonPanel.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 33.3333321F));
-            ItemButtonPanel.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 33.3333321F));
-            ItemButtonPanel.Controls.Add(RandomItemButton, 2, 0);
+            ItemButtonPanel.ColumnCount = 4;
+            ItemButtonPanel.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 25F));
+            ItemButtonPanel.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 25F));
+            ItemButtonPanel.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 25F));
+            ItemButtonPanel.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 25F));
             ItemButtonPanel.Controls.Add(ItemAddButton, 0, 0);
             ItemButtonPanel.Controls.Add(ItemRemoveButton, 1, 0);
+            ItemButtonPanel.Controls.Add(RandomItemButton, 3, 0);
+            ItemButtonPanel.Controls.Add(ItemEditButton, 2, 0);
             ItemButtonPanel.Location = new Point(3, 528);
             ItemButtonPanel.Name = "ItemButtonPanel";
             ItemButtonPanel.RowCount = 1;
@@ -227,9 +226,9 @@
             // RandomItemButton
             // 
             RandomItemButton.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
-            RandomItemButton.Location = new Point(215, 3);
+            RandomItemButton.Location = new Point(243, 3);
             RandomItemButton.Name = "RandomItemButton";
-            RandomItemButton.Size = new Size(102, 44);
+            RandomItemButton.Size = new Size(74, 44);
             RandomItemButton.TabIndex = 2;
             RandomItemButton.Text = "Random";
             RandomItemButton.UseVisualStyleBackColor = true;
@@ -240,7 +239,7 @@
             ItemAddButton.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             ItemAddButton.Location = new Point(3, 3);
             ItemAddButton.Name = "ItemAddButton";
-            ItemAddButton.Size = new Size(100, 44);
+            ItemAddButton.Size = new Size(74, 44);
             ItemAddButton.TabIndex = 0;
             ItemAddButton.Text = "Add";
             ItemAddButton.UseVisualStyleBackColor = true;
@@ -249,9 +248,9 @@
             // ItemRemoveButton
             // 
             ItemRemoveButton.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
-            ItemRemoveButton.Location = new Point(109, 3);
+            ItemRemoveButton.Location = new Point(83, 3);
             ItemRemoveButton.Name = "ItemRemoveButton";
-            ItemRemoveButton.Size = new Size(100, 44);
+            ItemRemoveButton.Size = new Size(74, 44);
             ItemRemoveButton.TabIndex = 1;
             ItemRemoveButton.Text = "Remove";
             ItemRemoveButton.UseVisualStyleBackColor = true;
@@ -277,7 +276,17 @@
             ItemsTxt.Size = new Size(39, 15);
             ItemsTxt.TabIndex = 0;
             ItemsTxt.Text = "Items";
-            ItemsTxt.Click += label1_Click;
+            // 
+            // ItemEditButton
+            // 
+            ItemEditButton.Dock = DockStyle.Fill;
+            ItemEditButton.Location = new Point(163, 3);
+            ItemEditButton.Name = "ItemEditButton";
+            ItemEditButton.Size = new Size(74, 44);
+            ItemEditButton.TabIndex = 3;
+            ItemEditButton.Text = "Edit";
+            ItemEditButton.UseVisualStyleBackColor = true;
+            ItemEditButton.Click += ItemEditButton_Click;
             // 
             // ItemsTab
             // 
@@ -317,5 +326,6 @@
         private Button RandomItemButton;
         private Label CategoryTxt;
         private ComboBox CategoryCombobox;
+        private Button ItemEditButton;
     }
 }

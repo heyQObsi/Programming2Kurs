@@ -118,9 +118,13 @@ namespace _2KursProgramming.View.Tabs.Controls
                 {
                     TestAddress.Index = v;
                 }
+                else if (PostIndexTextbox.Text == "")
+                {
+                    TestAddress.Index = 0;
+                }
                 else
                 {
-                    TestAddress.Index = null;
+                    throw new ArgumentException($"Post Index должен содержать только числа");
                 }
                 TestAddress.Country = CountryTextbox.Text;
                 TestAddress.City = CityTextbox.Text;
