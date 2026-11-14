@@ -27,11 +27,8 @@ namespace _2KursProgramming.View.Tabs
             get { return items; }
             set
             {
-                items.Clear();
-                foreach (Item item in value)
-                {
-                    items.Add(item);
-                }
+                items = value;
+                ItemsListbox.DataSource = items;
             }
         }
         private void ItemAddButton_Click(object sender, EventArgs e)
@@ -72,9 +69,13 @@ namespace _2KursProgramming.View.Tabs
 
         private void ItemRemoveButton_Click(object sender, EventArgs e)
         {
-            if (ItemsListbox.Items.Count != 0)
+            if (ItemsListbox.Items.Count != 0 && ItemsListbox.SelectedIndex>=0)
             {
                 items.RemoveAt(ItemsListbox.SelectedIndex);
+            }
+            else if (ItemsListbox.Items.Count != 0 && ItemsListbox.SelectedIndex < 0)
+            {
+                items.RemoveAt(ItemsListbox.Items.Count - 1);
             }
         }
 

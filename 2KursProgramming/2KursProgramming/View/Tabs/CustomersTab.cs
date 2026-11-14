@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.Runtime.InteropServices;
 using System.Text;
 using System.Windows.Forms;
 
@@ -17,13 +18,24 @@ namespace _2KursProgramming.View.Tabs
         private string[] CustomerSurname = File.ReadAllLines("C:\\Users\\heyQ\\Desktop\\Новая папка (2)\\Surname.txt");
         private string[] CustomerFathername = File.ReadAllLines("C:\\Users\\heyQ\\Desktop\\Новая папка (2)\\Fathername.txt");
         private string[] CustomerAddress = File.ReadAllLines("C:\\Users\\heyQ\\Desktop\\Новая папка (2)\\Address.txt");
+        //[DllImport("kernel32.dll")]
+        //private static extern bool AllocConsole();
         public CustomersTab()
         {
             InitializeComponent();
+            //AllocConsole();
+            //Address? _address = new Address(2, "Russianaaaaaa", "Tomskaaaa", "Litkinaaaaa", "8aaaa", "832aaaa");
+            //string[] RandomCustomer = CustomerFactory.CustGenerate(CustomerName, CustomerSurname, CustomerFathername, CustomerAddress);
+            //Customer template_customer1 = new Customer(RandomCustomer[0], _address);
+            //customers.Add(template_customer1);
+            //customers.Add(template_customer1);
             CustomersListbox.DataSource = customers;
             CustIdTextbox.Text = IdGenerator.CustGetCurrentId().ToString();
+            //foreach (Customer customer in customers)
+            //{
+            //    Console.WriteLine(customer.Fullname);
+            //}
         }
-
 
         BindingList<Customer> customers = new BindingList<Customer>();
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
@@ -32,11 +44,8 @@ namespace _2KursProgramming.View.Tabs
             get { return customers; }
             set
             {
-                customers.Clear();
-                foreach (Customer customer in value)
-                {
-                    customers.Add(customer);
-                }
+                customers = value;
+                CustomersListbox.DataSource = customers;
             }
         }
         private void AddCustButton_Click(object sender, EventArgs e)
@@ -56,9 +65,13 @@ namespace _2KursProgramming.View.Tabs
 
         private void CustRemoveButton_Click(object sender, EventArgs e)
         {
-            if (CustomersListbox.Items.Count != 0)
+            if (CustomersListbox.Items.Count != 0 && CustomersListbox.SelectedIndex >= 0)
             {
                 customers.RemoveAt(CustomersListbox.SelectedIndex);
+            }
+            else if (CustomersListbox.Items.Count != 0 && CustomersListbox.SelectedIndex < 0)
+            {
+                customers.RemoveAt(CustomersListbox.Items.Count - 1);
             }
         }
 

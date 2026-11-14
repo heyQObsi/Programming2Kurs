@@ -13,6 +13,16 @@ namespace _2KursProgramming
             InitializeComponent();
             itemsTab1.ItemsUpdater = _store.Items;
             customersTab1.CustomersUpdater = _store.Cutomers;
+            cartsTab1.CartCustomersUpdater = _store.Cutomers;
+            cartsTab1.CartItemUpdater = _store.Items;
+        }
+
+        private void MainIcon_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (MainIcon.SelectedIndex >= 0)
+            {
+                cartsTab1.RefreshData();
+            }
         }
     }
 }

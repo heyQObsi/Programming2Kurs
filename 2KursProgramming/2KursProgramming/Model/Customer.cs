@@ -21,6 +21,9 @@ namespace _2KursProgramming.Model
         /// Фактический адрес проживания клиента
         /// </summary>
         private Address? _address;
+        private Cart _cart;
+        private Order _order;
+        private List<Order> _cartitems;
         /// <summary>
         /// Возвращает и задаёт полное имя клиента. Длина имени не должна превыщать 200 символов.
         /// </summary>
@@ -45,6 +48,30 @@ namespace _2KursProgramming.Model
                 _address = value;
             }
         }
+        public Cart Cart
+        {
+            get { return _cart; }
+            set
+            {
+                _cart = value;
+            }
+        }
+        public List<Order> CartItems
+        {
+            get { return _cartitems; }
+            set
+            {
+                _cartitems = value;
+            }
+        }
+        public Order Order
+        {
+            get { return _order; }
+            set
+            {
+                _order = value;
+            }
+        }
         public Customer() { }
         /// <summary>
         /// Создаёт экземляр класса <see cref="Customer"/>
@@ -56,6 +83,21 @@ namespace _2KursProgramming.Model
             Fullname = fullname;
             Address = address;
             _id = IdGenerator.CustGetNextId();
+        }
+        public Customer(string fullname, Address address, Cart cart)
+        {
+            Fullname = fullname;
+            Address = address;
+            _id = IdGenerator.CustGetNextId();
+            Cart = cart;
+        }
+        public Customer(string fullname, Address address, Cart cart, Order order)
+        {
+            Fullname = fullname;
+            Address = address;
+            _id = IdGenerator.CustGetNextId();
+            Cart = cart;
+            Order = order;
         }
         public override string ToString()
         {
